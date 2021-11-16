@@ -1,0 +1,6 @@
+[book]
+authors = ["Daan van Berkel"]
+language = "en"
+multilingual = false
+src = "src"
+title = "PostScript; How to talk to your printer"
