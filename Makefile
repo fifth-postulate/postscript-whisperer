@@ -18,9 +18,6 @@ ${MATERIAL_DIR}: ${SUB_DIRECTORIES} ${REFERENCE}
 	cp -rf workshop/example/* $@/example
 	cp -rf presentation $@/presentation
 
-${REFERENCE}:
-	wget --output-document $@ https://www.adobe.com/content/dam/acom/en/devnet/actionscript/articles/PLRM.pdf
-
 ${SUB_DIRECTORIES}:
 	${MAKE} -C $@
 
