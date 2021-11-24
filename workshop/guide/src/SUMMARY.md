@@ -7,8 +7,10 @@
 * [Origin](./introduction/origin.md)
 * [Characteristics](./introduction/characteristics.md)
 
-# Tools 
+# Tools
+## Basics
 * [Hello, World](./tool/hello-world.md)
+* [Stack](./tool/stack.md)
 
 # Projects
 * [Grid](./project/grid.md)
