@@ -1,0 +1,74 @@
+/vline {
+    [/y1 /y0 /x] dup length dict begin { exch def } forall
+        x y0 moveto
+        x y1 lineto
+    end
+} def
+
+/vlines {
+    [/y1 /y0 /x1 /dx /x0] dup length 1 add dict begin { exch def } forall
+        x0 dx x1 {
+            /x exch def
+            x y0 y1 vline
+        } for
+    end
+} def
+
+/hline {
+    [/x1 /x0 /y] dup length dict begin { exch def } forall
+        x0 y moveto
+        x1 y lineto
+    end
+} def
+
+/hlines {
+    [/x1 /x0 /y1 /dy /y0] dup length 1 add dict begin { exch def } forall
+        y0 dy y1 {
+            /y exch def
+            y x0 x1 hline
+        } for
+    end
+} def
+
+/grid {
+    [/n /ds] dup length 3 add dict begin { exch def } forall
+        /dz n ds mul def
+        /z0 dz neg def
+        /z1 dz def
+        z0 ds z1 z0 z1 vlines
+        z0 ds z1 z0 z1 hlines
+    end
+} def
+
+/axis {
+    [/n /ds] dup length 3 add dict begin { exch def } forall
+        /dz n ds mul def
+        /z0 dz neg def
+        /z1 dz def
+        0 z0 z1 vline
+        0 z0 z1 hline
+    end
+} def
+
+72 25.4 div dup scale
+148 2 div 210 2 div translate
+30 rotate
+
+/ds 5 def
+/N 10 def
+
+0.1 setlinewidth
+0.3 setgray
+
+newpath
+ds N grid
+stroke
+
+0.3 setlinewidth
+0 setgray
+
+newpath
+ds N axis
+stroke
+
+showpage
