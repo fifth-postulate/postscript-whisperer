@@ -15,6 +15,8 @@
 # Projects
 * [Grid](./project/grid.md)
 * [Brownian Motion](./project/brownian.md)
+* [Pythagorean Tree](./project/pythogorean-tree.md)
+* [Penrose Tiling](./project/penrose.md)
 
 # Appendices
 * [GhostScript](./appendix/ghostscript.md)

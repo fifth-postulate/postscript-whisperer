@@ -1,0 +1,44 @@
+/pagewidth 148 def
+/pageheight 210 def
+
+/square { % size
+    0 0 moveto
+    dup 0 rlineto
+    dup 0 exch rlineto
+    neg 0 rlineto
+    closepath
+} def
+
+/tree { % alpha size n
+    [/n /size /alpha] dup length dict begin { exch def } forall
+        size square stroke
+        n 0 gt {
+            0 size translate
+            alpha rotate
+            gsave
+                alpha size alpha cos mul n 1 sub tree stroke
+            grestore
+            size alpha cos mul 0 translate
+            90 neg rotate
+            alpha size alpha sin mul n 1 sub tree stroke
+        } if
+    end
+} def
+
+72 25.4 div dup scale
+pagewidth 2 div 10 translate
+
+1 10 div setlinewidth
+
+
+
+gsave
+/size 20 def
+
+size 2 div neg 0 translate
+
+44 size 10 tree
+
+grestore
+
+showpage

@@ -15,7 +15,7 @@ images: ${IMAGE_TARGETS}
 	@echo "finished building png images"
 
 ${IMAGE_TARGET_DIRECTORY}/%.png: ${IMAGE_SOURCE_DIRECTORY}/%.ps
-	gs -sDEVICE=png256 -sPAPERSIZE=a6 -o $@ $<
+	gs -sDEVICE=png256 -sPAPERSIZE=a5 -o $@ $<
 
 clean:
 	mdbook clean
