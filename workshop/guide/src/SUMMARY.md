@@ -14,6 +14,7 @@
 
 # Projects
 * [Grid](./project/grid.md)
+* [Brownian Motion](./project/brownian.md)
 
 # Appendices
 * [GhostScript](./appendix/ghostscript.md)

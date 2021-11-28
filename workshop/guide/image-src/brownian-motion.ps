@@ -1,0 +1,32 @@
+/pagewidth 148 def
+/pageheight 210 def
+
+72 25.4 div dup scale
+pagewidth 2 div pageheight 2 div translate
+
+1 10 div setlinewidth
+1 setlinecap
+
+/steps 5000 def
+/stepsize 1 def
+/directions 6 def
+/angle 360 directions div def
+
+/step {
+    0 0 moveto
+    rand directions mod angle mul rotate
+    stepsize 0 translate
+    0 0 lineto
+} def
+
+gsave
+
+newpath
+steps {
+    step
+} repeat 
+stroke
+
+grestore
+
+showpage
