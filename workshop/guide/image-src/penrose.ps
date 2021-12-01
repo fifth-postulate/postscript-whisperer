@@ -1,0 +1,69 @@
+/pagewidth 148 def
+/pageheight 210 def
+
+/circlepoint { % phi r
+    [/r /phi] dup length dict begin { exch def } forall
+        [phi cos r mul phi sin r mul]
+    end
+} def
+
+/phi 180 5 div def
+/tau 1 5 sqrt add 2 div def
+
+/kitepoints [
+    phi neg tau circlepoint
+    0 tau circlepoint
+    phi tau circlepoint
+] def
+
+/dartpoints [
+    3 neg phi mul 1 circlepoint
+    0 1 circlepoint
+    3 phi mul 1 circlepoint
+] def
+
+/polygon { % x y phi points
+    [/points /phi /y /x] dup length 2 add dict begin { exch def } forall
+        x y moveto
+        points {
+            aload pop
+            [/dy /dx] {exch def} forall           
+            dx phi cos mul dy phi sin mul neg add
+            dx phi sin mul dy phi cos mul add
+            y add exch x add exch
+            lineto
+        } forall
+        closepath
+    end
+} def
+
+/kite { % x y phi
+    kitepoints polygon
+} def
+
+/dart { % x y phi
+    dartpoints polygon
+} def
+
+
+/draw { % [[x y phi name], ... ]
+    % where name is one of: /kite, /dart
+   { aload pop load exec } forall
+} def
+
+
+72 25.4 div dup scale
+pagewidth 2 div pageheight 2 div translate
+
+/factor 20 def
+
+factor dup scale
+1 10 factor mul div setlinewidth
+
+newpath
+
+[[0 0 0 /kite] [0 tau circlepoint aload pop 0 /dart]] draw
+
+stroke
+
+showpage
