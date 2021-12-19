@@ -1,0 +1,76 @@
+% This program demonstrates how one can use PostScript to create visualizations.
+%  
+% This file can be used to visualize a stack. It's purpose is to draw on the screen marks to reflect the contents of a stack.
+
+% The stack operator will draw the content of the stack.
+% 
+% * x - the x-coordinate of the lower left box of the stack
+% * y - the y-coordinate of the lower left box of the stack position 
+% * w - the width of the stack boxes
+% * h - the height of the stack boxes
+% * dh - the interbox distance
+% * fontsize - the scale of the currentfont used to vertical center text
+% * content - an array with the content of the stack. Earlier items are on the bottom
+/stack { % x y w h dh fontsize content
+    [/content /fontsize /dh /h /w /y /x] dup length 3 add dict begin { exch def } forall
+        /index 0 def
+        content {
+            /c exch def
+            /z y h dh add index mul add def
+            x z w h box
+            x w 2 div add z h 2 div add fontsize 2 div sub c centershow
+            /index index 1 add def
+        } forall
+    end
+} def
+
+% The box operator will draw a stack box
+% 
+% * x - the x-coordinate of the lower left box of the stack
+% * y - the y-coordinate of the lower left box of the stack position 
+% * w - the width of the stack boxes
+% * h - the height of the stack boxes
+/box { % x y w h
+    [/h /w /y /x] dup length 0 add dict begin { exch def } forall
+        x y moveto
+        w 0 rlineto
+        0 h rlineto
+        w neg 0 rlineto
+        closepath
+    end
+} def
+
+% The centershow box will show a string centered around the position (x, y)
+%
+% * x - the x-coordinate of the position around which the string s is shown
+% * y - the y-coordinate of the baseline on which the string s is shown
+% * s - the string to be centered
+/centershow { % x y s
+    [/s /y /x] dup length 1 add dict begin { exch def } forall
+        /w s stringwidth pop def
+        x w 2 div sub y moveto
+        s show
+    end 
+} def
+
+% We are using A5 paper in portrait
+/pagewidth 148 def
+/pageheight 210 def
+
+% Stack parameters
+/w 50 def
+/h 30 def
+/dh 5 def
+/fontsize 7 def
+
+% use millimeters as unit
+72 25.4 div dup scale
+% translate so stacks can be drawn in origin
+pagewidth w sub 2 div 10 translate
+
+/Helvetica findfont fontsize scalefont setfont
+
+0 0 w h dh fontsize [(a) (b) (c)] stack
+stroke
+
+showpage

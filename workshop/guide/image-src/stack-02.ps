@@ -1,0 +1,48 @@
+/stack { %x y w h dh fontsize content
+    [/content /fontsize /dh /h /w /y /x] dup length 3 add dict begin { exch def } forall
+        /index 0 def
+        content {
+            /c exch def
+            /z y h dh add index mul add def
+            x z w h box
+            x w 2 div add z h 2 div add fontsize 2 div sub c centershow
+            /index index 1 add def
+        } forall
+    end
+} def
+
+/box { % x y w h
+    [/h /w /y /x] dup length 0 add dict begin { exch def } forall
+        x y moveto
+        w 0 rlineto
+        0 h rlineto
+        w neg 0 rlineto
+        closepath
+    end
+} def
+
+/centershow { % x y string
+    [/s /y /x] dup length 1 add dict begin { exch def } forall
+        /w s stringwidth pop def
+        x w 2 div sub y moveto
+        s show
+    end 
+} def
+
+/pagewidth 148 def
+/pageheight 210 def
+
+/w 50 def
+/h 30 def
+/dh 5 def
+/fontsize 7 def
+
+72 25.4 div dup scale
+pagewidth w sub 2 div 10 translate
+
+/Helvetica findfont fontsize scalefont setfont
+
+0 0 w h dh fontsize [(100) (90)] stack
+stroke
+
+showpage

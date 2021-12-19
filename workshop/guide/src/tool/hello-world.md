@@ -17,7 +17,7 @@ Go ahead and start a GhostScript session.
 ## Read-Eval-Print-Loop
 When you start GhostScript the following things happen:
 
-1. A window is open that shows a blank page. The page will show the output of the PostScript program that we enter.
+1. A window is opened that shows a blank page. The page will show the output of the PostScript program that we enter.
 2. A Read-Eval-Print-Loop (REPL) is started. Via this REPL we can communicate with the PostScript interpreter.
 
 The REPL first prints a header, something akin
