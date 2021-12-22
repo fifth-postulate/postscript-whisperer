@@ -11,6 +11,7 @@
 ## Basics
 * [Hello, World](./tool/hello-world.md)
 * [Stack](./tool/stack.md)
+* [Stack Manipulation](./tool/stack-manipulation.md)
 
 # Projects
 * [Grid](./project/grid.md)

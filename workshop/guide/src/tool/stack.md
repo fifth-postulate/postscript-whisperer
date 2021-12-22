@@ -86,6 +86,9 @@ Current file position is 7
 
 While developing PostScript programs one often encounters these kind of errors.
 
+## Summary
+PostScripts maintains various stacks. One of them is the _operand stack_. The operand stack is manipulated by pushing values onto them. _Operators_ take values from the stack by popping _operands_ from the stack. When an operator tries to pop operands from the stack which does not have enough items an _stackunderflow_ error occurs.
+
 ## Exercises
 1. For each of the following program fragments, draw the resuling operand stack.
 
