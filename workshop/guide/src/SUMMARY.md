@@ -23,3 +23,4 @@
 # Appendices
 * [GhostScript](./appendix/ghostscript.md)
 * [Reference Manual](./appendix/manual.md)
+* [Paper Sizes](./appendix/paper-sizes.md)

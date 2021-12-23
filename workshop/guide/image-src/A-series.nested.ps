@@ -1,0 +1,59 @@
+/rectangle { % x y w h
+    [/h /w /y /x] dup length 0 add dict begin { exch def } forall
+        x y moveto
+        w 0 rlineto
+        0 h rlineto
+        w neg 0 rlineto
+        closepath
+    end
+} def
+
+/portrait {
+    1 sqrt2
+} def
+
+/landscape {
+    sqrt2 1 
+} def
+
+/sqrt2 2 sqrt def
+/aseries { % x y n orientation
+    [/orientation /n /y /x] dup length 2 add dict begin { exch def } forall
+        /factor sqrt2 n exp def
+        orientation load exec [/h /w] { exch factor div def } forall
+        x y w h rectangle 
+    end
+} def
+
+72 25.4 div dup scale
+
+/pagewidth 148 def
+/pageheight 210 def
+
+/factor 0.9 def
+/width pagewidth factor mul def
+/height pageheight factor mul def
+
+pagewidth width sub 2 div
+pageheight height sub 2 div
+translate
+
+width dup scale
+
+1 200 div setlinewidth 
+
+newpath
+0 0 0 /portrait aseries
+0 0 1 /portrait aseries
+0 0 2 /portrait aseries
+0 0 3 /portrait aseries
+0 0 4 /portrait aseries
+0 0 5 /portrait aseries
+0 0 6 /portrait aseries
+0 0 7 /portrait aseries
+0 0 8 /portrait aseries
+0 0 9 /portrait aseries
+0 0 10 /portrait aseries
+stroke
+
+showpage

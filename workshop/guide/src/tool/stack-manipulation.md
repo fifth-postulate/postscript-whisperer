@@ -4,10 +4,10 @@ Because the stack is so important, PostScript offers a slew of operators to mani
 We could show a picture of the stack, but that takes up a lot of space. Instead we will rely on a representation of the operand stack that fits on a line.
 
 \\[
-a_{1}\ a_{2}\ a_{3}\ \ldots\ a_{n}
+a_{n}\ a_{n-1}\ \dots\ a_{2}\ a_{1}
 \\]
 
-The above line represents a stack that has \\(n\\) items. The bottom item is \\(a_{1}\\), the item above that one is \\(a_{2}\\), etcetera. The top item is \\(a_{n}\\).
+The above line represents a stack that has \\(n\\) items. The bottom item is \\(a_{n}\\), the item above that one is \\(a_{n-1}\\), etcetera. The top item is \\(a_{1}\\).
 
 ## Operators
 
