@@ -1,5 +1,5 @@
 # Postscript Whisperer
-Material for the a workshop on [PostScript][adobe:postscript], a [page description language][wikipedia:pdl].
+Material for a workshop on [PostScript][adobe:postscript], a [page description language][wikipedia:pdl].
 
 [PostScript][wikipedia:postscript] is 
 
