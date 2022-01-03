@@ -1,0 +1,53 @@
+/sqrt3_2 3 sqrt 2 div def
+/stamp { % x y size
+    [/size /y /x] dup length 0 add dict begin { exch def } forall
+        x y moveto
+        size 2 div size sqrt3_2 mul neg rlineto
+        size 0 rlineto
+        size 2 div size sqrt3_2 mul rlineto
+        size 0 rlineto
+    end
+} def
+
+/stampline { % x y size n
+    [/n /size /y /x] dup length 1 add dict begin { exch def } forall
+        /dx 3 size mul def
+        x y size stamp
+        0 1 n {
+            dx mul x add y size stamp
+        } for
+    end
+} def
+
+/stampgrid { % x y size n m
+    [/m /n /size /y /x] dup length 3 add dict begin { exch def } forall
+        /dx 3 size mul 2 div neg def
+        /dy sqrt3_2 size mul def
+        0 1 m {
+            2 mul dy mul /ds exch def
+            x y ds add size n stampline
+            x dx add y ds add dy add size n stampline
+        } for
+    end
+
+} def
+
+72 25.4 div dup scale
+
+/pagewidth 148 def
+/pageheight 210 def
+
+/size 7 def
+/dx 3 size mul 2 div neg def
+/dy sqrt3_2 size mul def
+
+/n pagewidth 2 size mul div floor 1 add def
+/m pageheight dy div floor 1 add def
+
+newpath
+0 0 size n m stampgrid
+stroke
+
+
+
+showpage

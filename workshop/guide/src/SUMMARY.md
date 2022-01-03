@@ -18,6 +18,7 @@
 * [Brownian Motion](./project/brownian.md)
 * [Pythagorean Tree](./project/pythogorean-tree.md)
 * [Koch Curve](./project/koch.md)
+* [Hex Grid](./project/hex.md)
 * [Penrose Tiling](./project/penrose.md)
 
 # Appendices
