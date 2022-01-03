@@ -1,0 +1,39 @@
+/circle { % x y r
+    [/r /y /x] dup length 0 add dict begin { exch def } forall
+        x r add y moveto
+        x y r 0 360 arc
+    end
+} def
+
+/dot { % x y
+    dot-radius circle
+} def
+
+/spiral { % n alpha
+    [/alpha /n] dup length 3 add dict begin { exch def } forall
+        0 1 n {
+            /i exch def
+            /r i sqrt def
+            /a i alpha mul def
+            a cos r mul a sin r mul dot
+        } for
+    end
+} def
+
+/pagewidth 148 def
+/pageheight 210 def
+
+72 25.4 div dup scale
+pagewidth 2 div pageheight 2 div translate
+
+1 100 div setlinewidth
+
+/dot-radius 2 5 div def
+/z 5 sqrt neg 1 add 2 div def
+/angle z 360 mul def
+
+newpath
+5000 angle spiral
+fill
+
+showpage

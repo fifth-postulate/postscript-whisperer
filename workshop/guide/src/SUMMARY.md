@@ -19,6 +19,7 @@
 * [Pythagorean Tree](./project/pythogorean-tree.md)
 * [Koch Curve](./project/koch.md)
 * [Hex Grid](./project/hex.md)
+* [Sun flower](./project/sunflower.md)
 * [Penrose Tiling](./project/penrose.md)
 
 # Appendices
