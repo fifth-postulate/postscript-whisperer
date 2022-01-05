@@ -1,0 +1,102 @@
+/max {
+    2 copy
+    gt {
+        exch pop
+    }{
+        pop
+    } ifelse
+} def
+
+/unit-square {
+    0 0 moveto
+    1 0 rlineto
+    0 1 rlineto
+    -1 0 rlineto
+    closepath
+} def
+
+/transform-path { % matrix
+    1 dict begin /m exch def
+        /path [
+            { [ 3 1 roll m transform /moveto ] }
+            { [ 3 1 roll m transform /lineto ] }
+            { [ 7 1 roll 3 { m transform 6 2 roll} repeat /curveto ] }
+            { [/closepath] }
+            pathforall
+        ] def
+        newpath
+        path {
+            aload pop
+            cvx exec
+        } forall
+    end
+} def
+
+/pick { % picks a random element from an array
+    1 dict begin /xs exch def
+        rand xs length mod % this is not a good way to pick elements
+        xs exch get
+    end
+} def
+
+/circle { % x y r
+    [/r /y /x] dup length 0 add dict begin { exch def } forall
+        x r add y moveto
+        x y r 0 360 arc
+    end
+} def
+
+/dot { % x y
+    dot-radius circle
+} def
+
+/chaos-game { % start total transforms 
+    [/transforms /total /start] dup length 1 add dict begin { exch def } forall
+        0 0
+        0 1 total {
+            /i exch def
+            transforms pick transform
+            i start ge {
+                2 copy dot
+            } if
+        } for
+    end
+} def
+
+72 25.4 div dup scale
+
+/pagewidth 148 def
+/pageheight 210 def
+/offset 6 def
+
+/size pagewidth 2 offset mul sub pageheight 2 offset mul sub max def
+
+pagewidth size sub 2 div pageheight size sub 2 div translate
+size dup scale
+
+1 3 size mul div setlinewidth
+
+/dot-radius 1 1000 div def
+
+0.9 setgray
+newpath
+unit-square
+stroke
+
+0 setgray
+newpath
+% unit-square
+% [1 2 div 0 0 1 2 div 1 4 div 1 2 div] transform-path
+% stroke
+
+
+0 50000
+[
+[1 2 div 0 0 1 2 div 0 0]
+[1 2 div 0 0 1 2 div 1 2 div 0]
+[1 2 div 0 0 1 2 div 1 4 div 1 2 div]
+]
+chaos-game
+fill
+
+showpage
