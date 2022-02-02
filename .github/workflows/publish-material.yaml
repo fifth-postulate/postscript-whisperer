@@ -11,7 +11,7 @@ jobs:
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
       - name: Setup GhostScript
-        uses: ./.github/actions/install-ghostscript
+        run: sudo apt-get install ghostscript
       - name: Build artifact
         run: make all
       - name: Create release

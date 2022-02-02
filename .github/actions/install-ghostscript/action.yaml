@@ -1,6 +1,0 @@
-name: Install GhostScript
-author: Daan van Berkel
-description: Installs GhostScript and makes the `gs` command available
-runs:
-  using: docker
-  image: docker://minidocks/ghostscript
