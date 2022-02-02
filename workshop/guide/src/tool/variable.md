@@ -89,3 +89,4 @@ This way the key is closer to the definition, which could aid in understanding.
 
 ## Exercises
 1. You made a PostScript program that draws a house in the "Hello, World!"-chapter. Introduce some variables into your program that allows you to manipulate the shape of the house by changing the values.
+2. The dimensions for an A4 sheet of paper are 210 millimeters by 297 millemeters. Create a program that binds variables to these numbers.
