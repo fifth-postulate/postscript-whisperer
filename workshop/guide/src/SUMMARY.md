@@ -13,6 +13,11 @@
 * [Stack](./tool/stack.md)
 * [Stack Manipulation](./tool/stack-manipulation.md)
 * [Variables](./tool/variable.md)
+* [Arithmetic](./tool/arithmetic.md)
+* [Dictionaries](./tool/dictionary.md)
+* [Dictionary Stack](./tool/dictionary-stack.md)
+* [Drawing primitives](./tool/drawing.md)
+* [Coordinates](./tool/coordinates.md)
 
 # Projects
 * [Grid](./project/grid.md)
