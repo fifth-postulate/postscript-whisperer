@@ -14,6 +14,7 @@
 * [Stack Manipulation](./tool/stack-manipulation.md)
 * [Variables](./tool/variable.md)
 * [Arithmetic](./tool/arithmetic.md)
+* [Procedures](./tool/procedure.md)
 * [Dictionaries](./tool/dictionary.md)
 * [Dictionary Stack](./tool/dictionary-stack.md)
 * [Drawing primitives](./tool/drawing.md)

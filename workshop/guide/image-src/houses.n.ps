@@ -1,0 +1,38 @@
+
+/house-width 200 def
+/house-height 200 def
+/roof-height 100 def
+/door-width 50 def
+/door-height 70 def
+
+/house { % x y
+    2 copy
+    moveto
+    house-width 0 rlineto
+    0 house-height rlineto
+    house-width 2 div neg roof-height rlineto
+    house-width 2 div neg roof-height neg rlineto
+    closepath
+    exch house-width door-width sub 2 div add exch
+    moveto
+    door-width 0 rlineto
+    0 door-height rlineto
+    door-width neg 0 rlineto
+
+    closepath
+} def
+
+newpath
+0 0 house 
+15 10 house
+30 20 house
+45 30 house
+60 40 house
+75 50 house 
+90 60 house
+105 70 house
+120 80 house
+135 90 house
+stroke
+
+showpage
