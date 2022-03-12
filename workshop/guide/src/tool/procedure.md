@@ -80,7 +80,7 @@ Defining procedures and immediatly executing them with the `exec` operator kind 
 
 We can bind the above procedure to a name `segment` with the following code.
 
-```postscript
+```ps
 /segment {
     0 0 moveto
     100 100 lineto
@@ -89,7 +89,7 @@ We can bind the above procedure to a name `segment` with the following code.
 
 Later on we can call it with by looking up the name
 
-```postscript
+```ps
 segment
 ```
 
@@ -102,7 +102,7 @@ By now you have seen numerous usages of the stack in PostScript. With a leap of 
 ## Exercises
 1. The `segment` procedure can draw only one segment; the one from `0 0` to `100 100`. Change the definition of segment to accept arguments via the stack. The following program fragment should draw three lines
 
-```postscript
+```ps
 /segment {
     % your definition here
 } def

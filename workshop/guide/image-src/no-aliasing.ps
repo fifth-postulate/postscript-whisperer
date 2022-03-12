@@ -1,0 +1,24 @@
+/height 595 def
+/width 419 def
+
+/box { % x y width height
+    4 dict begin
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+    end
+} def
+
+newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+
+showpage
