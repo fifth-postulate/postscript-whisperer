@@ -1,0 +1,24 @@
+newpath
+
+/offset 20 def
+/side 160 def
+
+offset offset moveto
+side 0 rlineto
+0 side rlineto
+side neg 0 rlineto
+0 side neg rlineto
+
+2 offset mul side add 0 translate
+
+offset offset moveto
+side 0 rlineto
+0 side rlineto
+side neg 0 rlineto
+closepath
+
+10 setlinewidth
+
+stroke
+
+showpage
