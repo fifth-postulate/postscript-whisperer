@@ -1,0 +1,30 @@
+/page-width 148 def
+/page-height 210 def
+
+72 25.4 div dup scale
+
+/n 4 def
+/offset 20 def
+
+/width page-width 2 offset mul sub def
+/height page-height 2 offset mul sub def
+
+/dy height n div def
+
+offset 2 div setlinewidth
+
+offset dup translate
+
+1 1 n 1 sub {
+    /i exch def
+    0 height i dy mul sub moveto
+    width 0 rlineto
+    i 1 sub setlinecap
+    stroke
+} for
+
+showpage
+
+
+
+
