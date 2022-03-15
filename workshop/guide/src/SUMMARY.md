@@ -19,6 +19,7 @@
 * [Drawing primitives](./tool/drawing.md)
 * [Graphics State](./tool/state.md)
 * [Coordinates](./tool/coordinates.md)
+* [Control Flow](./tool/control.md)
 
 # Projects
 * [Grid](./project/grid.md)
