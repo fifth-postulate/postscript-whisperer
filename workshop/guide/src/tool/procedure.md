@@ -14,14 +14,14 @@ There is an interesting aspect to creating a procedures in PostScript or, for th
 
 Take for example the `add` operator. The operator `add` takes two operands from the stack, adds them together and puts the result back onto the stack. But if we are creating a procedure, that should not happen when we are creating the procedure. It should happen when we execute the procudure. It should defer the execution until the procedure is called.
 
-The to signal to the PostScript interpreter to defer the execution of operators is with the opening brace: `{`.
+Too signal to the PostScript interpreter to defer the execution of operators is with the opening brace: `{`.
 
 This is akin to C-style languages, but it does play a different role here.
 
 With a little imagination one could guess that to finish defining a procedure one uses the closing brace: `}`.
 
 ## Venerable "Hello, World!"-example
-Let's hark back to the PostScript variant of the "Hello, World!"-program. There we created a line. I we wanted to create a procedure for that we could do that in the following way.
+Let's hark back to the PostScript variant of the "Hello, World!"-program. There we created a line. If we wanted to create a procedure for that we could do that in the following way.
 
 I have opened a REPL in order to better explore how PostScript handles procedures. When I go and type in the following code into the REPL
 
@@ -76,9 +76,9 @@ GS>
 ```
 
 ## Binding Procedures
-Defining procedures and immediatly executing them with the `exec` operator kind of defies the purpose. Instead we can combine bind them to a name so we can reuse them later on.
+Defining procedures and immediatly executing them with the `exec` operator kind of defies the purpose. Instead we can bind the procedure to a name so we can reuse it later on.
 
-We can bind the above procedure to a name `segment` with the following code.
+We can bind the above procedure to a key `/segment` with the following code.
 
 ```ps
 /segment {
@@ -113,6 +113,6 @@ By now you have seen numerous usages of the stack in PostScript. With a leap of 
 stroke
 ```
 
-2. In your implementation of `0 0 100 100 segment` is the line drawn from `0 0` to `100 100`, or the other way around? For a single segment it does not make a use difference. But when we are creating longer path it might. Write an implementation of segment that draws the line in the opposite direction.
+2. In your implementation of `0 0 100 100 segment` is the line drawn from `0 0` to `100 100`, or the other way around? For a single segment it does not make a huge difference. But when we are creating longer paths it might. Write an implementation of segment that draws the line in the opposite direction.
 3. If you haven't already, try to bind the arguments for the segment procedure to names and use them. 
 4. Take a look at your house and write a procedure that can reproduce the house.

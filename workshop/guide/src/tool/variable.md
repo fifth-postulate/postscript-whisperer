@@ -1,5 +1,5 @@
 # Variables
-Up until now, all the operands that we used, are but on the stack from literal values. When we are working on larger projects that soon becomes a hassle. In this chapter we will learn how to define variables that can be reused.
+Up until now, all the operands that we used, are put on the stack from literal values. When we are working on larger projects that soon becomes a hassle. In this chapter we will learn how to define variables that can be reused.
 
 ## Key
 PostScript has a notion _key_. They are akin to symbols in Ruby. Keys provide a way to associate a value to a certain name.
@@ -89,4 +89,4 @@ This way the key is closer to the definition, which could aid in understanding.
 
 ## Exercises
 1. You made a PostScript program that draws a house in the "Hello, World!"-chapter. Introduce some variables into your program that allows you to manipulate the shape of the house by changing the values.
-2. The dimensions for an A4 sheet of paper are 210 millimeters by 297 millemeters. Create a program that binds variables to these numbers.
+2. The dimensions for an A4 sheet of paper are 210 millimeters by 297 millimeters. Create a program that binds variables to these numbers.

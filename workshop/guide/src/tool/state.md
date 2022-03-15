@@ -1,5 +1,5 @@
 # Graphics State
-We have learned that PostScript Differentiates between constructing a path and painting that path.
+We have learned that PostScript differentiates between constructing a path and painting that path.
 
 In this chapter we are mentioning a few internal graphic states that PostScript keep track of that effect the resulting marks on the paper.
 

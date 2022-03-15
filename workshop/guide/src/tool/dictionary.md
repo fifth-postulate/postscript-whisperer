@@ -15,8 +15,8 @@ You could recognize a few sections in the above code
 {{#include ../../image-src/aliasing.ps:1:2}}
 ```
 
-Here we bind to names `/height` and `/width` to the values `595` and `419`.
-These are the dimension of A5 paper in PostScript points, the default scale that is used.
+Here we bind the keys `/height` and `/width` to the values `595` and `419`.
+These are the dimension of A5 paper in [PostScript points][book:sizes], the default scale that is used.
 
 ### Procedures
 
@@ -24,7 +24,7 @@ These are the dimension of A5 paper in PostScript points, the default scale that
 {{#include ../../image-src/aliasing.ps:4:14}}
 ```
 
-The code goes on to bind a procedure to the name `/box`.
+The code goes on to bind a procedure to the key `/box`.
 
 The procedure uses the [tip][book:exch-tip] from the variable chapter to bind the arguments to names.
 
@@ -34,9 +34,9 @@ Note that if we write the arguments in order
 x y width height
 ```
 
-`height` ends up on top of the stack. That is why you have to pop them in the reverse order.
+`height` ends up on top of the stack. That is why you have to bind them in the reverse order.
 
-It goes on to draw a box by moving to the lower left corner, and drawing lines to each corner in a anti-clockwise fasion.
+It goes on to draw a box by moving to the lower left corner, and drawing lines to each corner in a counter-clockwise fasion.
 
 ```ps
 {{#include ../../image-src/aliasing.ps:9:13}}
@@ -89,13 +89,13 @@ The operand stack is of central importance in any PostScript program. But it is 
 
 There is also a dictionary stack. Just like the operand stack the dictionary stack is a stack. We saw that you can use `begin` and `end` to push dictionaries onto and pop them from the stack.
 
-The dictionary stack integrates plays an integral role in PostScript programs. Specifically how looks up values bound to names. When the PostScript interpreter encounters a name like `/bergen` it will search for a binding in the current, or top-most, dictionary.
+The dictionary stack plays an integral role in PostScript programs. Specifically how it looks up values bound to names. When the PostScript interpreter encounters a name like `bergen` it will search for a binding in the current, or top-most, dictionary.
 
 If it finds the key in the dictionary it returns the value bound to it.
 
 If it can not find the name in the dictionary it begins searching in lower dictionaries on the dictionary stack.
 
-Interestingly enough, PostScript programs start with a number of dictionaries on the stack. The most important one is the **system dict** and it contains all definitions of the PostScript operators!
+Interestingly enough, PostScript programs start with a number of dictionaries on the stack. The most important one is the **system dict**. It contains all definitions of the PostScript operators!
 
 ## Literal Dictionaries
 Creating a dictionary with the `dict` operator and pushing it on the dictionary stack with `begin` makes it the current dictionary. It will be used to bind names to values with the `def` operator.
@@ -142,4 +142,5 @@ end
 
 [wikipedia:aliasing]: https://en.wikipedia.org/wiki/Aliasing_(computing)
 [book:paper-size]: ../appendix/paper-sizes.md
+[book:sizes]: ../appendix/sizes.md
 [book:exch-tip]: variable.md#tip

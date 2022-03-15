@@ -71,7 +71,7 @@ There is a subtle difference, that will be noticable under close scrutiny, betwe
 ![The difference between "closing" a path by hand and using `closepath`](../../image/generated/closepath.png)
 
 ## Relative drawing primitive
-The above drawing primitives all accept operands that are coordinates are global. For example if you want to draw a square with the lower left corner at 10 10 and with side length of 30 one could use the following program
+The above drawing primitives all accept operands. When the operands are coordinates they are global. For example if you want to draw a square with the lower left corner at 10 10 and with side length of 30 one could use the following program
 
 ```ps
 10 10 moveto
@@ -100,6 +100,7 @@ There are more drawing operators, all with a specific need. Listing them all isn
 
 ## Exercises
 1. Match the `arc` snippets to the drawing.
+2. There is no relative `arc` operator. Provide one yourself. Hint: take a look at the `currentpoint` operator.
 
 [wikipedia:bezier-curve]: https://en.wikipedia.org/wiki/B%C3%A9zier_curve
 [book:reference]: ../appendix/manual.md
