@@ -1,5 +1,5 @@
 # What to expect
-This book is devided into the following parts
+This book is divided into the following parts
 
 * Introduction
 * Tools
