@@ -1,7 +1,7 @@
 # Arithmetic
-We have learned how to use variables in PostScript. Sometimes we want a group of variables to related to each other.
+We have learned how to use variables in PostScript. Sometimes we want a group of variables related to each other.
 
-For example, if you are drawing a house with a door where the door should be directly in the center of the house. In this situation the location of the door should be calculated from the width of the house and the width of the door.
+For example, if you are drawing a house with a door, where the door should be directly in the center of the house. In this situation the location of the door should be calculated from the width of the house and the width of the door.
 
 That is why we are looking at arithmetic operators.
 
