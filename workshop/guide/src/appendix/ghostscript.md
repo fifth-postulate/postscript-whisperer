@@ -50,12 +50,12 @@ Again, installing a PostScript viewer is platform dependent. Below we will provi
 The default `Preview.app` has the capability to show PostScript files
 
 ### Linux
-The utility `gv`, which stands for _ghostview_ and can be installed via a packagemanager, is a clunky, but good viewer. It has the option to watch the file you are developing for changes and update the display when changes occur.
+The utility `gv`, which stands for _ghostview_ and can be installed via a package manager, is a clunky, but good viewer. It has the option to watch the file you are developing for changes and update the display when changes occur.
 
 ## In case of emergency
-If all the above fails, we have created a utility that will render your PostScript over the web
+If all the above fails, we have created a utility that will render your PostScript on the web:
 
-[https://postscript-render.fly.dev/static/index.html](https://postscript-render.fly.dev/static/index.html)
+[https://postscript-render.fly.dev](https://postscript-render.fly.dev)
 
 [book:tool:hello-world]: ../tool/hello-world
 [ghostscript]: https://www.ghostscript.com/index.html
