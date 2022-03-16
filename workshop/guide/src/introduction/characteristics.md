@@ -21,7 +21,7 @@ y = g(x)
 z = h(z)
 ```
 
-Here function `f` is applied to argument `w`, that result is applied to function `g` etcetera.
+Here function `f` is applied to argument `w`, that result is applied to function `g`, etc.
 
 In a concatenative language the same example would typically look like
 

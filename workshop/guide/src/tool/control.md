@@ -6,7 +6,7 @@ All _control flow_ operators have a similar structure. They take as operands one
 We will go through a few control flow operators, but don't hesitate tho look for more in the [reference][book:reference].
 
 ## if
-The `if` operator takes as its two operands a boolean, which can be obtained with various operands like `eq`, `and`, `not` etcetera, and a procedure.
+The `if` operator takes as its two operands a boolean, which can be obtained with various operands like `eq`, `and`, `not` etc, and a procedure.
 
 It will execute the procedure only if the boolean is `true`.
 

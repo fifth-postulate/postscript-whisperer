@@ -7,7 +7,7 @@ We could show a picture of the stack, but that takes up a lot of space. Instead 
 a_{n-1}\ a_{n-2}\ \dots\ a_{1}\ a_{0}
 \\]
 
-The above line represents a stack that has \\(n\\) items. The bottom item is \\(a_{n-1}\\), the item above that one is \\(a_{n-2}\\), etcetera. The top item is \\(a_{0}\\).
+The above line represents a stack that has \\(n\\) items. The bottom item is \\(a_{n-1}\\), the item above that one is \\(a_{n-2}\\), etc. The top item is \\(a_{0}\\).
 
 ## Operators
 
