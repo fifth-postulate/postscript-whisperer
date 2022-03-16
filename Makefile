@@ -23,6 +23,7 @@ ${SUB_DIRECTORIES}:
 
 ${WEBPAGE_DIR}: ${MATERIAL_DIR} ${ARCHIVE}
 	mkdir -p $@
+	echo "<meta http-equiv=refresh content=0;url=guide/index.html>" > $@/index.html
 	cp -rf $</guide $@/guide
 	cp -rf $</presentation $@/presentation
 	cp resources/public/* $@/
