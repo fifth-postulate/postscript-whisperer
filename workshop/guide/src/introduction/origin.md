@@ -1,7 +1,7 @@
 # Origin
 PostScript has a rich history that we delve into here for a small bit.
 
-Developed by Adobe Systems [PostScript][wikipedia:postscript] culminated in 1984 as a laser printer driver. Now almost entirely replaced with it's successor _Portable Document Format_ (PDF), it is a
+Developed by Adobe Systems [PostScript][wikipedia:postscript] culminated in 1984 as a laser printer driver. Now almost entirely replaced with its successor _Portable Document Format_ (PDF), it is a
 
 >  page description language in the electronic publishing and desktop publishing realm. It is a dynamically typed, concatenative programming language.
 

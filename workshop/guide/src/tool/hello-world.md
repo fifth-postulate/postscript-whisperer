@@ -66,7 +66,7 @@ Only when we issue the `stroke` command, will the PostScript interpreter update 
 ```
 
 ## Celebrate 🎉
-With a line drawn on the page, you are wel on your way to becoming a master of PostScript!
+With a line drawn on the page, you are well on your way to becoming a master of PostScript!
 
 ## Final Thoughts
 ### showpage
