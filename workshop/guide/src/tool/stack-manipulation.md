@@ -27,7 +27,7 @@ The opposite of pushing is popping. This can be achieved by the `pop` operator. 
 37 51 pop
 ```
 
-Leaves the operand stack containing the value `37`.
+This leaves the operand stack containing the value `37`.
 
 ### dup
 To duplicate the top element on the operand stack use the `dup` operator.
@@ -36,10 +36,10 @@ To duplicate the top element on the operand stack use the `dup` operator.
 37 dup
 ```
 
-The above program will result in an operand stack containing two values `37`.
+The above program will result in an operand stack containing two values: `37 37`.
 
 ### exch
-If there are more than two items on the operand stack, `exch` allows you to exchange the top two items. If the operand stack contains `1 2 3`, the operator `exch` will exhange the `2` and the `3`, resulting in a stack containing `1 3 2`. The program below demonstrates that behavior.
+If there are more than two items on the operand stack, `exch` allows you to exchange the top two items. If the operand stack contains `1 2 3`, the operator `exch` will exchange the `2` and the `3`, resulting in a stack containing `1 3 2`. The program below demonstrates that behavior.
 
 ```ps
 1 2 3
@@ -71,13 +71,13 @@ Assume we have the following stack
 \ldots\ a_{n-1}\ a_{n-2}\ \ldots\ a_{0}  
 \\]
 
-The `roll` operator allows to select the top most `n` items from the stack and "roll" them through `j` positions. So the executing `n j roll` with the above stack results in
+The `roll` operator allows to select the top most `n` items from the stack and "roll" them through `j` positions. So executing `n j roll` with the above stack results in
 
 \\[
 \ldots\ a_{j-1}\ \ldots\ a_{1}\ a_{0}\ a_{n-1}\ a_{n-2}\ \ldots\ a_{j}  
 \\]
 
-With a concrete example, The following program
+With a concrete example, the following program
 
 ```ps
 1 2 3 4
@@ -91,16 +91,16 @@ results in the operand stack being
 ```
 
 ### index
-The `index` operator allows you to select copy a single element in the operand stack to the top. With an operand stack as below
+The `index` operator allows you to copy a single element in the operand stack to the top. With an operand stack as below
 
 \\[
-\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{0}  
+\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{j}\ \ldots\ a_{0}  
 \\]
 
-The `index` operator copies an element of the stack to the top. So the following snippet `j index` results in a stack
+the snippet `j index` results in a stack like
 
 \\[
-\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{0}\ a_{j} 
+\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{j}\ \ldots\ a_{0}\ a_{j}
 \\]
 
 Or with a concrete example
@@ -110,7 +110,7 @@ Or with a concrete example
 2 index
 ```
 
-Results in a operand stack
+results in the operand stack
 
 ```
 1 2 3 4 2
@@ -133,6 +133,6 @@ That does not mean that stack manipulation isn't worthwhile. It allows great fle
 1. What happens when there is only one item on the operand stack when `exch` is executed?
 2. How can you use `copy` to simulate `dup`?
 3. How can you use `roll` to simulate `exch`?
-4. How can you use `index` to simulate `dup`? 
+4. How can you use `index` to simulate `dup`?
 5. What happens when you use negative numbers as the second operand for the `roll` operator? The second operand is the one on the top on the stack when `roll` is executed.
 6. The stack contains `1 2 3 4`. Create a program to reverse the operand stack that contains four items.
