@@ -1,13 +1,13 @@
 # Dictionaries
-In the chapter on procedures you have been asked to use variables in the exercises. If one isn't carefull, one could encounter the problem of [_aliasing_][wikipedia:aliasing].
+In the previous chapter on [procedures](./procedure.md) you were asked to use variables in the exercises. If one isn't careful, one could encounter the problem of [_aliasing_][wikipedia:aliasing].
 
-Take a carefull look at the following code and try to predict what the resulting image looks like.
+Take a careful look at the following code and try to predict what the resulting image looks like:
 
 ```ps
 {{#include ../../image-src/aliasing.ps}}
 ```
 
-You could recognize a few sections in the above code
+You will recognize a few sections in the above code
 
 ### Definitions
 
@@ -15,7 +15,7 @@ You could recognize a few sections in the above code
 {{#include ../../image-src/aliasing.ps:1:2}}
 ```
 
-Here we bind the keys `/height` and `/width` to the values `595` and `419`.
+Here we bind the keys `height` and `width` to the values `595` and `419`.
 These are the dimension of A5 paper in [PostScript points][book:sizes], the default scale that is used.
 
 ### Procedures
@@ -24,7 +24,7 @@ These are the dimension of A5 paper in [PostScript points][book:sizes], the defa
 {{#include ../../image-src/aliasing.ps:4:14}}
 ```
 
-The code goes on to bind a procedure to the key `/box`.
+The code goes on to bind a procedure to the key `box`.
 
 The procedure uses the [tip][book:exch-tip] from the variable chapter to bind the arguments to names.
 
@@ -36,14 +36,14 @@ x y width height
 
 `height` ends up on top of the stack. That is why you have to bind them in the reverse order.
 
-It goes on to draw a box by moving to the lower left corner, and drawing lines to each corner in a counter-clockwise fasion.
+It goes on to draw a box by moving to the lower left corner, and drawing lines to each corner in a counter-clockwise fashion.
 
 ```ps
 {{#include ../../image-src/aliasing.ps:9:13}}
 ```
 
 ### Drawing
-The next section of code uses the defined `/box` procedure to draw, and stroke, three boxes.
+The next section of code uses the defined `box` procedure to draw, and stroke, three boxes.
 
 ```ps
 {{#include ../../image-src/aliasing.ps:16:20}}
@@ -54,7 +54,7 @@ The same arguments are passed each time. So one would expect to see only one box
 ![Three boxes where one would expect only one](../../image/generated/aliasing.png)
 
 ## Aliasing
-As hinted in the opening paragraph the unexpected boxes originate from aliasing. If you look carefully you will notice that the "global" `width` and `height` variables are reassigned each time the `/box` procedure is called.
+As hinted in the opening paragraph the unexpected boxes originate from aliasing. If you look carefully you will notice that the "global" `width` and `height` variables are reassigned each time the `box` procedure is called.
 
 One could solve the problem if one could scope the variables to the procedure only. This is where dictionaries come in.
 
@@ -74,15 +74,15 @@ The only difference with the program mentioned in the beginning of this chapter 
 {{#include ../../image-src/no-aliasing.ps:5:5}}
 ```
 
-and 
+and
 
 ```ps
 {{#include ../../image-src/no-aliasing.ps:15:15}}
 ```
 
-`4 dict` creates a dictionary that can contain 4 items and puts it on the operand stack, `begin` takes the dictionary from the stacks and makes it the current dictionary, so that it will be used to bind variables in and look up names from.
+`4 dict` creates a dictionary that can contain 4 items and puts it on the operand stack, `begin` takes the dictionary from the stack and makes it the current dictionary, so that it will be used to bind variables in and look up names from.
 
-`end` restores the previous the dictionary as the current dictionary.
+`end` restores the previous dictionary as the current dictionary.
 
 ## Dictionary Stack
 The operand stack is of central importance in any PostScript program. But it is not the only stack that PostScript knows about.
@@ -110,7 +110,7 @@ There is a literal notation for dictionaries. For example, the following snippet
 ...
 ```
 
-it equivalent to
+is equivalent to
 
 ```ps
 <</foo 1 /bar 2 /baz 3>> begin
@@ -129,7 +129,7 @@ it equivalent to
 end
 ```
 
-2. In the following snippet, to what value is the name `/a` bound to, according to the PostScript interpreter.
+2. In the following snippet, what value is the name `a` bound to, according to the PostScript interpreter.
 
 ```ps
 3 dict begin
