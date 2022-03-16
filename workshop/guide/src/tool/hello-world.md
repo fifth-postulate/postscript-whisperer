@@ -14,6 +14,10 @@ You can find some notes about installing GhostScript in [the appendix][book:appe
 
 Go ahead and start a GhostScript session.
 
+> **Note**: GhostScript on macOS does not have a rendered output.
+> Instead of using the REPL you can write the instructions to a file and use `ps2pdf` to generate a PDF
+> or use the PostScript interpreter on **<https://postscript-render.fly.dev/>** for this workshop.
+
 ## Read-Eval-Print-Loop
 When you start GhostScript the following things happen:
 
