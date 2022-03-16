@@ -2,11 +2,11 @@
 There are various [standards][wikipedia:paper_sizes] that specify paper sizes. A popular one is the _A-series_, which we will explore in some detail in this chapter.
 
 ## A-series
-The A-series of paper sizes, that range from A0 to A10, has an interesting properties that allow one to deduce a lot about the actual dimensions of each type.
+The A-series of paper sizes, that range from A0 to A10, has interesting properties that allow one to deduce a lot about the actual dimensions of each type.
 
 The first property is that A0, the largest in the series, has an area of exactly 1 square meter. Each next type in the series is half as big in area as its predecessor.
 
-The second property is that each type has a similar shape. This means that if one could shrink or grow a certain type with an appriorate amount, you would be able to produce all the other types.
+The second property is that each type has a similar shape. This means that if one could shrink or grow a certain type with an appropriate amount, you would be able to produce all the other types.
 
 ![Stacked paper-types from the A-series of paper sizes](../image/generated/A-series.stacked.png)
 
@@ -64,18 +64,18 @@ This equation has two solutions, one negative and one positive. Since we are loo
 x = \sqrt{\frac{1}{2}} = \frac{\sqrt{1}}{\sqrt{2}} = \frac{1}{\sqrt{2}}\cdot 1 = \frac{1}{\sqrt{2}}\frac{\sqrt{2}}{\sqrt{2}} = \frac{1}{\sqrt{2}\cdot\sqrt{2}}\frac{\sqrt{2}}{1} = \frac{1}{2}\sqrt{2}
 \\]
 
-With the scaling factor being twice \\(x\\) the scaling facotr becomes \\(\sqrt{2}\\).
+With the scaling factor being twice \\(x\\) the scaling factor becomes \\(\sqrt{2}\\).
 
 ### Dimension of A0
-We now know the scaling factor. The next step is finding out the dimension of a sheet of A0 paper. The defining property, besides the ratio between the sides, is that A0 has an area of 1 square meter. Let's figure out if the dimensions from that
+We now know the scaling factor. The next step is finding out the dimension of a sheet of A0 paper. The defining property, besides the ratio between the sides, is that A0 has an area of 1 square meter. Let's figure out the dimensions from that.
 
-Let \\(s\\) be the short side of an A0 sheet of paper. The long side would then be \\(s\sqrt{2}\\). It's area becomes
+Let \\(s\\) be the short side of an A0 sheet of paper. The long side would then be \\(s\sqrt{2}\\). Its area becomes
 
 \\[
 s^{2}\cdot\sqrt{2} = 1   
 \\]
 
-or 
+or
 
 \\[
 s^{2} = \frac{1}{\sqrt{2}}
