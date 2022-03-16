@@ -60,16 +60,16 @@ So the above program will result in an operand stack similar too
 
 It leaves two operands for the `lineto` operator to consume.
 
-## Stackunderflow
-When the PostScript interpreter encounters an operator, but the necessary operands aren't on the stack, an _stackunderflow_ error is issued.
+## Stack underflow
+When the PostScript interpreter encounters an operator, but the necessary operands aren't on the stack, a _stack underflow_ error is issued.
 
-For example, when ones starts a GhostScript session and immediatly perform `moveto`
+For example, when ones starts a GhostScript session and immediately performs `moveto`
 
 ```
 GS> moveto
 ```
 
-One is greeted with a 
+one is greeted with an error:
 
 ```
 Error: /stackunderflow in --moveto--
@@ -87,10 +87,10 @@ Current file position is 7
 While developing PostScript programs one often encounters these kind of errors.
 
 ## Summary
-PostScripts maintains various stacks. One of them is the _operand stack_. The operand stack is manipulated by pushing values onto them. _Operators_ take values from the stack by popping _operands_ from the stack. When an operator tries to pop operands from the stack which does not have enough items an _stackunderflow_ error occurs.
+PostScripts maintains various stacks. One of them is the _operand stack_. The operand stack is manipulated by pushing values onto them. _Operators_ take values from the stack by popping _operands_ from the stack. When an operator tries to pop operands from the stack which does not have enough items a _stack underflow_ error occurs.
 
 ## Exercises
-1. For each of the following program fragments, draw the resuling operand stack.
+1. For each of the following program fragments, draw the resulting operand stack.
 
 ```ps
 {{#include ../../image-src/cross.alternative.ps:2:2}}
@@ -114,7 +114,7 @@ PostScripts maintains various stacks. One of them is the _operand stack_. The op
 
 What does the last program look like when printed?
 
-2. Write a program that results in an operand stack like this
+2. Write a program that results in an operand stack like this:
 
 ![The stack containing 1, 2, 3, 4](../image/generated/stack-exercise.png)
 
