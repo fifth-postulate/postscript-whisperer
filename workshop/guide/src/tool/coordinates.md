@@ -27,7 +27,7 @@ Positive angles rotate counter clockwise.
 
 The `scale` operator scales the coordinate system. It accepts a two operands, that determines the factor to scale the x-axis and y-axis.
 
-Non-uniform scaling, i.e. scaling with different factors for the x-axis and y-axis, produce a linewidth that depends on the direction of the line.
+Non-uniform scaling, i.e. scaling with different factors for the x-axis and y-axis, produce a line width that depends on the direction of the line.
 
 ## combination
 By combining `translate`, `rotate` and `scale` in various ways, one can achieve all transformation that are allowed and possible by PostScript.

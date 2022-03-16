@@ -1,32 +1,32 @@
-# GhostScript
+# Ghostscript
 In order to save trees, we are not going to send our experimentations to an actual printer. Instead we are going to use a PostScript interpreter.
 
-Specifically, we are going to use [_GhostScript_][ghostscript].
+Specifically, we are going to use [_Ghostscript_][ghostscript].
 
-![The GhostScript Logo](../image/ghostscript-plus-text.png)
+![The Ghostscript Logo](../image/ghostscript-plus-text.png)
 
-GhostScript is a
+Ghostscript is a
 
 > an interpreter for the PostScript®  language and PDF files. Ghostscript consists of a PostScript interpreter layer and a graphics library.
 
 ## Installation
-[Obtaining GhostScript][ghostscript:download] depends on your platform.
+[Obtaining Ghostscript][ghostscript:download] depends on your platform.
 
 ### Windows
 The installation page has binaries for [Windows][ghostscript:download].
 
 ### Mac
-There is a [homebrew recipe][homebrew:ghostscript] that can be used to install GhostScript.
+There is a [homebrew recipe][homebrew:ghostscript] that can be used to install Ghostscript.
 
 ```
 homebrew install ghostscript
 ```
 
 ### Linux
-It is likely that GhostScript is already installed, or that you can install it via a package manager. Otherwise the installation page has binaries for [Linux][ghostscript:download] as well.
+It is likely that Ghostscript is already installed, or that you can install it via a package manager. Otherwise the installation page has binaries for [Linux][ghostscript:download] as well.
 
 ## Verification
-Once installed you can verify that GhostScript works as intended by starting the program. There are various aliases notably `ghostscript` or the shorter `gs` should open a blank window and show the following prompt in the terminal
+Once installed you can verify that Ghostscript works as intended by starting the program. There are various aliases notably `ghostscript` or the shorter `gs` should open a blank window and show the following prompt in the terminal
 
 ```
 GPL Ghostscript 9.50 (2019-10-15)
@@ -39,7 +39,7 @@ GS>
 This can be used as a Read-Eval-Print-Loop (REPL). See the [Hello, World][book:tool:hello-world] on how to use that.
 
 ## Alternative
-GhostScript is a low-level tool that allows you to inspect PostScript programs and how they are interpreted. But often you will want to open a high level viewer.
+Ghostscript is a low-level tool that allows you to inspect PostScript programs and how they are interpreted. But often you will want to open a high level viewer.
 
 Again, installing a PostScript viewer is platform dependent. Below we will provide some suggestions per platform
 

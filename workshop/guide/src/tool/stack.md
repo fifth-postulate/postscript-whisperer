@@ -63,7 +63,7 @@ It leaves two operands for the `lineto` operator to consume.
 ## Stack underflow
 When the PostScript interpreter encounters an operator, but the necessary operands aren't on the stack, a _stack underflow_ error is issued.
 
-For example, when ones starts a GhostScript session and immediately performs `moveto`
+For example, when ones starts a Ghostscript session and immediately performs `moveto`
 
 ```
 GS> moveto

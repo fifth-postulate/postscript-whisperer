@@ -4,22 +4,22 @@
 The practice of a ["Hello, World!" program][wikipedia:hello-world], i.e. a simple program to demonstrate that your tool chain works as intended, has many forms. For PostScript this would be outputting a single line. In this chapter we are going to achieve just that.
 
 ## Start your engines
-Getting feedback is important. The sooner, the better. That is why we are going to use [GhostScript][ghostscript].
+Getting feedback is important. The sooner, the better. That is why we are going to use [Ghostscript][ghostscript].
 
-GhostScript is
+Ghostscript is
 
 > an interpreter for the PostScript® language and PDF files. Ghostscript consists of a PostScript interpreter layer and a graphics library.
 
-You can find some notes about installing GhostScript in [the appendix][book:appendix:ghostscript].
+You can find some notes about installing Ghostscript in [the appendix][book:appendix:ghostscript].
 
-Go ahead and start a GhostScript session.
+Go ahead and start a Ghostscript session.
 
-> **Note**: GhostScript on macOS does not have a rendered output.
+> **Note**: Ghostscript on macOS does not have a rendered output.
 > Instead of using the REPL you can write the instructions to a file and use `ps2pdf` to generate a PDF
 > or use the PostScript interpreter on **<https://postscript-render.fly.dev/>** for this workshop.
 
 ## Read-Eval-Print-Loop
-When you start GhostScript the following things happen:
+When you start Ghostscript the following things happen:
 
 1. A window is opened that shows a blank page. The page will show the output of the PostScript program that we enter.
 2. A Read-Eval-Print-Loop (REPL) is started. Via this REPL we can communicate with the PostScript interpreter.
@@ -47,7 +47,7 @@ Enter the following line into the REPL.
 {{#include ../../image-src/hello-world.ps:2:2}}
 ```
 
-Even when you look closely, the page will not be changed. The only thing that happend is that the _current path_ is extended with a move to the origin. What this means will become clear in later chapters.
+Even when you look closely, the page will not be changed. The only thing that happened is that the _current path_ is extended with a move to the origin. What this means will become clear in later chapters.
 
 ## Draw the line
 The next step in this walkthrough is drawing the line. This can be achieved with the `lineto` command
