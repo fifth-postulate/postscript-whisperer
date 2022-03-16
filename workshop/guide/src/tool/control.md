@@ -3,7 +3,7 @@ PostScript is an interpreted language. It reads operators from a program and exe
 
 All _control flow_ operators have a similar structure. They take as operands one or more procedures and a description when to execute it.
 
-We will go through a few control flow operators, but don't hesitate tho look for more in the [reference][book:reference].
+We will go through a few control flow operators, but don't hesitate to look for more in the [reference][book:reference].
 
 ## if
 The `if` operator takes as its two operands a boolean, which can be obtained with various operands like `eq`, `and`, `not` etc, and a procedure.
@@ -19,7 +19,7 @@ If you want to repeat a procedure a number of times, `repeat` is the operator yo
 The number determines how many times the procedure is executed.
 
 ## for
-This is your standard for loop. It accepts a whooping four operands. E.g.
+This is your standard for loop. It accepts a whooping four operands. E.g.:
 
 ```ps
 0 1 10 { pop } for
@@ -27,7 +27,7 @@ This is your standard for loop. It accepts a whooping four operands. E.g.
 
 The first three operands are numbers: _initial_, _increment_ and _limit_. The fourth operand is the procedure to execute.
 
-The procedure is with values from initial by steps of increment to limit, inclusive. Each time around the loop, the index is pushed onto the stack for the procedure to consume.
+The procedure runs with values from _initial_ by steps of _increment_ to _limit_, inclusive. Each time around the loop, the index is pushed onto the stack for the procedure to consume.
 
 ## Exercises
 1. Imagine that the language designers forgot to provided `ifelse`, but they provided `if`. Implement `ifelse` in terms of `if` and the boolean operators.
