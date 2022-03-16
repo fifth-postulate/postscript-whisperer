@@ -3,14 +3,14 @@
 
 It is about time we talk about drawing with PostScript!
 
-The above doodle is created with some of the drawing primitives that PostScript provides. To wet our apetite we will list the entire program below
+The above doodle is created with some of the drawing primitives that PostScript provides. To wet our appetite we will list the entire program below
 
 ```ps
 {{#include ../../image-src/drawing.ps}}
 ```
 
 ## Current Path
-The central concept in PostScript programs is the path. The drawing primitives construct paths. You might remember from the "Hello, World!"-program that you first construct a path and then stroke it. Later we will learn that paths can also be filled.
+The central concept in PostScript programs is the path. The drawing primitives construct paths. You might remember from the "Hello, World!"-program that your first construct a path and then stroke it. Later we will learn that paths can also be filled.
 
 The path that is being constructed is called the _current path_. The drawing operators change the current path in certain ways.
 
@@ -50,7 +50,7 @@ The following snippets show the various options
 {{#include ../../image-src/arc.ps:15:16}}
 ```
 
-```ps 
+```ps
 {{#include ../../image-src/arc.ps:20:21}}
 ```
 
@@ -66,7 +66,7 @@ Bezier curves are fascinating and well-behaved drawing tool. we will not say a l
 ## closepath
 The close path operator will draw a line segment from the current point to the point designated by the last moveto operator.
 
-There is a subtle difference, that will be noticable under close scrutiny, between drawing the segment yourself and using closepath.
+There is a subtle difference, that will be noticeable under close scrutiny, between drawing the segment yourself and using closepath.
 
 ![The difference between "closing" a path by hand and using `closepath`](../../image/generated/closepath.png)
 

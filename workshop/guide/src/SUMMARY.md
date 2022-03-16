@@ -32,7 +32,7 @@
 * [Penrose Tiling](./project/penrose.md)
 
 # Appendices
-* [GhostScript](./appendix/ghostscript.md)
+* [Ghostscript](./appendix/ghostscript.md)
 * [Reference Manual](./appendix/manual.md)
 * [Paper Sizes](./appendix/paper-sizes.md)
 * [Points, Inches and Millimeters](./appendix/sizes.md)
