@@ -18,7 +18,7 @@ The path that is being constructed is called the _current path_. The drawing ope
 The `newpath` operator clears the current path and starts an empty path, ready to be altered to your hearts content.
 
 ## moveto
-The `moveto` operator changes the _current point_. The current point is important building block for drawing primitives. Usually drawing primitives change the current point to be the current point to the last control point.
+The `moveto` operator changes the _current point_. The current point is an important building block for drawing primitives. Usually drawing primitives change the current point to be the current point to the last control point.
 
 The `moveto` operator requires two operands to be present on the stack. Those are the `x`-coordinate and the `y`-coordinate of the current point to be.
 
@@ -54,14 +54,14 @@ The following snippets show the various options
 {{#include ../../image-src/arc.ps:20:21}}
 ```
 
-Their result collated in a single image
+Their result collated in a single image:
 
 ![Some of the variants of `arc`](../../image/generated/arc.png)
 
 ## curveto
 The curveto operator extends the current path with [a cubic bezier curve][wikipedia:bezier-curve].
 
-Bezier curves are fascinating and well-behaved drawing tool. we will not say a lot about it now, but feel free to pick the brain of the workshop leaders.
+Bezier curves are fascinating and well-behaved drawing tool. We will not say a lot about it now, but feel free to pick the brain of the workshop leaders.
 
 ## closepath
 The close path operator will draw a line segment from the current point to the point designated by the last moveto operator.
