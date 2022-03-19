@@ -1,0 +1,78 @@
+/l { % <<x y> <<x y>> <<x y>>
+    [/v /u /o] dup length dict begin { exch def } forall
+        o /x get o /y get moveto
+        u /x get u /y get rlineto
+        v /x get 2 div v /y get 2 div rlineto
+        u /x get 2 div neg u /y get 2 div rlineto
+        v /x get 2 div v /y get 2 div rlineto
+        u /x get 2 div neg u /y get 2 div rlineto
+        closepath
+     end
+} def
+
+/s { % <<x y>> f - <<x y>>
+    [/f /w] dup length dict begin { exch def } forall
+        <<
+            /x w /x get f mul
+            /y w /y get f mul
+        >>
+    end
+} def
+
+/t { % <<x y>> <<x y>> <<x y>> dx dy - <<x y>>
+    [/dy /dx /v /u /o] dup length dict begin { exch def } forall
+        <<
+            /x o /x get u /x get dx mul add v /x get dy mul add
+            /y o /y get u /y get dx mul add v /y get dy mul add
+        >>
+   end
+} def
+
+/sc { % <<x y>> <<x y>> <<x y>> f - <<x y>> <<x y>> <<x y>>
+    [/yf /xf /v /u /o] dup length dict begin { exch def } forall
+        o
+        u xf s
+        v yf s
+    end
+} def
+
+/tr { % <<x y>> <<x y>> <<x y>> dx dy - <<x y>> <<x y>> <<x y>>
+    [/dy /dx /v /u /o] dup length dict begin { exch def } forall
+        o u v dx dy t
+        u
+        v
+    end
+} def 
+
+/L { % n <<x y>> <<x y>> <<x y>>
+    [/v /u /o /n] dup length 0 add dict begin { exch def } forall
+        n 0 eq {
+            o u v l
+        } {
+            n 1 sub o u v 0.5 0.5 sc L
+            n 1 sub o u v 0.5 0.5 sc 0.5 0.5 tr L
+            n 1 sub o u v 0.5 0.5 sc 2 0 tr 1 neg 1 sc L
+            n 1 sub o u v 0.5 0.5 sc 0 2 tr 1 1 neg sc L
+          } ifelse
+    end
+} def
+
+/page-width 148 def
+/page-height 210 def
+
+72 25.4 div dup scale
+
+
+/size 120 def
+
+page-width size sub 2 div page-height size sub 2 div translate
+
+newpath
+
+currentlinewidth 2 div setlinewidth
+
+5 <</x 0 /y 0>> <</x size /y 0>> <</x 0 /y size>> L
+
+stroke
+
+showpage

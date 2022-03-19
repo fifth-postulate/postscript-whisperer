@@ -29,7 +29,7 @@
 * [Hex Grid](./project/hex.md)
 * [Sun flower](./project/sunflower.md)
 * [Chaos Game](./project/chaos.md)
-* [Penrose Tiling](./project/penrose.md)
+* [L Tiling](./project/tiling.md)
 
 # Appendices
 * [Ghostscript](./appendix/ghostscript.md)

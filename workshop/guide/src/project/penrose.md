@@ -1,1 +1,0 @@
-# Penrose Tiling
