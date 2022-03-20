@@ -1,4 +1,4 @@
-# PostScript; how to talk to your printer 
+# PostScript; how to talk to your printer
 
 [PostScript](./title.md)
 [What to expect](./expectations.md)
@@ -36,4 +36,5 @@
 * [Reference Manual](./appendix/manual.md)
 * [Paper Sizes](./appendix/paper-sizes.md)
 * [Points, Inches and Millimeters](./appendix/sizes.md)
+* [Cheatsheet](./appendix/cheatsheet.md)
 * [Sources](./appendix/sources.md)

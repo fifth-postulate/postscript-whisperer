@@ -7,3 +7,4 @@ title = "PostScript; How to talk to your printer"
 
 [output.html]
 mathjax-support = true
+additional-css = ["custom.css"]
