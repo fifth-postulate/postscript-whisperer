@@ -36,3 +36,4 @@
 * [Reference Manual](./appendix/manual.md)
 * [Paper Sizes](./appendix/paper-sizes.md)
 * [Points, Inches and Millimeters](./appendix/sizes.md)
+* [Sources](./appendix/sources.md)
