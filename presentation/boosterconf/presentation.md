@@ -8,7 +8,9 @@ class: middle, center
 
 ---
 
-[https://fifth-postulate.nl/postscript-whisperer](https://fifth-postulate.nl/postscript-whisperer)
+### [https://fifth-postulate.nl/postscript-whisperer](https://fifth-postulate.nl/postscript-whisperer)
+
+### [https://is.gd/khBc76](https://is.gd/khBc76)
 
 ---
 layout: true
