@@ -37,4 +37,5 @@
 * [Paper Sizes](./appendix/paper-sizes.md)
 * [Points, Inches and Millimeters](./appendix/sizes.md)
 * [Cheatsheet](./appendix/cheatsheet.md)
+* [Starter kit](./appendix/starter.md)
 * [Sources](./appendix/sources.md)
