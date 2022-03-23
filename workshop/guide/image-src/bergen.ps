@@ -1,0 +1,81 @@
+/HALVE-SQRT-3 3 sqrt 2 div def
+
+/interval {
+    rand 16#ffffffff div
+} def
+
+/uniform { % a b - r
+    1 index sub interval mul add
+} def
+
+/peak { % ruggedness -- 
+    3 dict begin
+        /ruggedness exch def
+        /context 4 dict def
+        [
+        {
+            context begin
+                /current-y exch def
+                /current-x exch def
+                /last-x current-x def
+                /last-y current-y def
+                current-x current-y /moveto cvx
+            end
+        }
+        {
+            context begin
+                /current-y exch def
+                /current-x exch def
+                6 dict begin
+                    /dx current-x last-x sub def
+                    /dy current-y last-y sub def
+                    /l dx dup mul dy dup mul add sqrt def
+                    /nx dy neg l div def
+                    /ny dx l div def
+                    /f ruggedness neg ruggedness uniform HALVE-SQRT-3 mul l mul def
+                    last-x dx 2 div add f nx mul add
+                    last-y dy 2 div add f ny mul add
+                    /lineto cvx
+                    current-x current-y /lineto cvx
+                end
+                /last-x current-x def
+                /last-y current-y def
+            end
+        }
+        {
+            % use flatten to remove curveto sections in paths
+            6 { pop } repeat
+        }
+        {
+            context /current-y undef
+            context /current-x undef
+            context /last-x undef
+            context /last-y undef
+            /closepath cvx
+        } pathforall
+        ] cvx /path exch def
+        newpath
+        path
+    end 
+} def
+
+/page-width 148 def
+/page-height 210 def
+
+72 25.4 div dup scale
+0 page-height 2 div translate
+
+realtime srand
+
+newpath
+
+0 0 moveto
+page-width 0 lineto
+
+flattenpath
+
+10 { 0.3 peak } repeat
+
+stroke
+
+showpage
