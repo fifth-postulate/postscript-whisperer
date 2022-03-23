@@ -1,0 +1,47 @@
+% Relative arc
+%
+% Draws an arc where the center is relative to the current point. Other arguments are like the arc operand.
+% arguments
+% dx: the amount to shift the center of the arc from the current point in the x-direction
+% dy: similar to dx, but shift in the y-direction
+% r: radius of the arc
+% a: start angle
+% b: end angle
+% see the arc operator for more information.
+/rarc { % dx dy r a b 
+    [/b /a /r /dy /dx] dup length dict begin { exch def } forall
+        currentpoint % x y 
+        dy           % x y dy
+        add          % x (y+dy)
+        exch         % (y+dy) x
+        dx add exch  % (x+dx) (y+dy)
+        r a b        % (x+dx) (y+dy) r a b
+        arc
+    end
+} def
+
+% scale to coordinate system to use millimeters
+72 25.4 div dup scale
+
+% The dimensions of A5 paper
+/page-width 148 def
+/page-height 210 def
+
+% translate the coordinate system to the center of the page
+page-width 2 div page-height 2 div translate
+
+
+newpath
+
+% Create a procedure to automate the following code
+% Think about what arguments the procudure should accept
+% and how they relate to the resulting spiral
+0 0 moveto
+0 0 10 180 0 rarc
+20 neg 0 20 0 180 rarc
+30 0 30 180 0 rarc
+40 neg 0 40 0 180 rarc
+
+stroke
+
+showpage
