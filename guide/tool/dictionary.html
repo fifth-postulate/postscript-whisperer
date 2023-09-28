@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dictionaries - PostScript; How to talk to your printer</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../title.html">PostScript</a></li><li class="chapter-item expanded affix "><a href="../expectations.html">What to expect</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../introduction/origin.html"><strong aria-hidden="true">1.</strong> Origin</a></li><li class="chapter-item expanded "><a href="../introduction/characteristics.html"><strong aria-hidden="true">2.</strong> Characteristics</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../tool/hello-world.html"><strong aria-hidden="true">3.</strong> Hello, World</a></li><li class="chapter-item expanded "><a href="../tool/stack.html"><strong aria-hidden="true">4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="../tool/stack-manipulation.html"><strong aria-hidden="true">5.</strong> Stack Manipulation</a></li><li class="chapter-item expanded "><a href="../tool/variable.html"><strong aria-hidden="true">6.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../tool/arithmetic.html"><strong aria-hidden="true">7.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="../tool/procedure.html"><strong aria-hidden="true">8.</strong> Procedures</a></li><li class="chapter-item expanded "><a href="../tool/dictionary.html" class="active"><strong aria-hidden="true">9.</strong> Dictionaries</a></li><li class="chapter-item expanded "><a href="../tool/drawing.html"><strong aria-hidden="true">10.</strong> Drawing primitives</a></li><li class="chapter-item expanded "><a href="../tool/state.html"><strong aria-hidden="true">11.</strong> Graphics State</a></li><li class="chapter-item expanded "><a href="../tool/coordinates.html"><strong aria-hidden="true">12.</strong> Coordinates</a></li><li class="chapter-item expanded "><a href="../tool/control.html"><strong aria-hidden="true">13.</strong> Control Flow</a></li><li class="chapter-item expanded affix "><li class="part-title">Projects</li><li class="chapter-item expanded "><a href="../project/grid.html"><strong aria-hidden="true">14.</strong> Grid</a></li><li class="chapter-item expanded "><a href="../project/brownian.html"><strong aria-hidden="true">15.</strong> Brownian Motion</a></li><li class="chapter-item expanded "><a href="../project/pythogorean-tree.html"><strong aria-hidden="true">16.</strong> Pythagorean Tree</a></li><li class="chapter-item expanded "><a href="../project/koch.html"><strong aria-hidden="true">17.</strong> Koch Curve</a></li><li class="chapter-item expanded "><a href="../project/hex.html"><strong aria-hidden="true">18.</strong> Hex Grid</a></li><li class="chapter-item expanded "><a href="../project/sunflower.html"><strong aria-hidden="true">19.</strong> Sun flower</a></li><li class="chapter-item expanded "><a href="../project/chaos.html"><strong aria-hidden="true">20.</strong> Chaos Game</a></li><li class="chapter-item expanded "><a href="../project/tiling.html"><strong aria-hidden="true">21.</strong> L Tiling</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendices</li><li class="chapter-item expanded "><a href="../appendix/ghostscript.html"><strong aria-hidden="true">22.</strong> Ghostscript</a></li><li class="chapter-item expanded "><a href="../appendix/manual.html"><strong aria-hidden="true">23.</strong> Reference Manual</a></li><li class="chapter-item expanded "><a href="../appendix/paper-sizes.html"><strong aria-hidden="true">24.</strong> Paper Sizes</a></li><li class="chapter-item expanded "><a href="../appendix/sizes.html"><strong aria-hidden="true">25.</strong> Points, Inches and Millimeters</a></li><li class="chapter-item expanded "><a href="../appendix/cheatsheet.html"><strong aria-hidden="true">26.</strong> Cheatsheet</a></li><li class="chapter-item expanded "><a href="../appendix/starter.html"><strong aria-hidden="true">27.</strong> Starter kit</a></li><li class="chapter-item expanded "><a href="../appendix/sources.html"><strong aria-hidden="true">28.</strong> Sources</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PostScript; How to talk to your printer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="dictionaries"><a class="header" href="#dictionaries">Dictionaries</a></h1>
+<p>In the previous chapter on <a href="./procedure.html">procedures</a> you were asked to use variables in the exercises. If one isn't careful, one could encounter the problem of <a href="https://en.wikipedia.org/wiki/Aliasing_(computing)"><em>aliasing</em></a>.</p>
+<p>Take a careful look at the following code and try to predict what the resulting image looks like:</p>
+<pre><code class="language-ps">/height 595 def
+/width 419 def
+
+/box { % x y width height
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+} def
+
+newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+
+showpage
+</code></pre>
+<p>You will recognize a few sections in the above code</p>
+<h3 id="definitions"><a class="header" href="#definitions">Definitions</a></h3>
+<pre><code class="language-ps">/height 595 def
+/width 419 def
+</code></pre>
+<p>Here we bind the keys <code>height</code> and <code>width</code> to the values <code>595</code> and <code>419</code>.
+These are the dimension of A5 paper in <a href="../appendix/sizes.html">PostScript points</a>, the default scale that is used.</p>
+<h3 id="procedures"><a class="header" href="#procedures">Procedures</a></h3>
+<pre><code class="language-ps">/box { % x y width height
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+} def
+</code></pre>
+<p>The code goes on to bind a procedure to the key <code>box</code>.</p>
+<p>The procedure uses the <a href="variable.html#tip">tip</a> from the variable chapter to bind the arguments to names.</p>
+<p>Note that if we write the arguments in order</p>
+<pre><code class="language-ps">x y width height
+</code></pre>
+<p><code>height</code> ends up on top of the stack. That is why you have to bind them in the reverse order.</p>
+<p>It goes on to draw a box by moving to the lower left corner, and drawing lines to each corner in a counter-clockwise fashion.</p>
+<pre><code class="language-ps">    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+</code></pre>
+<h3 id="drawing"><a class="header" href="#drawing">Drawing</a></h3>
+<p>The next section of code uses the defined <code>box</code> procedure to draw, and stroke, three boxes.</p>
+<pre><code class="language-ps">newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+</code></pre>
+<p>The same arguments are passed each time. So one would expect to see only one box.</p>
+<p><img src="../../image/generated/aliasing.png" alt="Three boxes where one would expect only one" /></p>
+<h2 id="aliasing"><a class="header" href="#aliasing">Aliasing</a></h2>
+<p>As hinted in the opening paragraph the unexpected boxes originate from aliasing. If you look carefully you will notice that the &quot;global&quot; <code>width</code> and <code>height</code> variables are reassigned each time the <code>box</code> procedure is called.</p>
+<p>One could solve the problem if one could scope the variables to the procedure only. This is where dictionaries come in.</p>
+<h2 id="use-of-dictionary"><a class="header" href="#use-of-dictionary">Use of dictionary</a></h2>
+<p><img src="../../image/generated/no-aliasing.png" alt="A single box, drawn three times" /></p>
+<p>The above image is the one we expected. It is drawn by the following program.</p>
+<pre><code class="language-ps">/height 595 def
+/width 419 def
+
+/box { % x y width height
+    4 dict begin
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+    end
+} def
+
+newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+
+showpage
+</code></pre>
+<p>The only difference with the program mentioned in the beginning of this chapter is the pair</p>
+<pre><code class="language-ps">    4 dict begin
+</code></pre>
+<p>and</p>
+<pre><code class="language-ps">    end
+</code></pre>
+<p><code>4 dict</code> creates a dictionary that can contain 4 items and puts it on the operand stack, <code>begin</code> takes the dictionary from the stack and makes it the current dictionary, so that it will be used to bind variables in and look up names from.</p>
+<p><code>end</code> restores the previous dictionary as the current dictionary.</p>
+<h2 id="dictionary-stack"><a class="header" href="#dictionary-stack">Dictionary Stack</a></h2>
+<p>The operand stack is of central importance in any PostScript program. But it is not the only stack that PostScript knows about.</p>
+<p>There is also a dictionary stack. Just like the operand stack the dictionary stack is a stack. We saw that you can use <code>begin</code> and <code>end</code> to push dictionaries onto and pop them from the stack.</p>
+<p>The dictionary stack plays an integral role in PostScript programs. Specifically how it looks up values bound to names. When the PostScript interpreter encounters a name like <code>bergen</code> it will search for a binding in the current, or top-most, dictionary.</p>
+<p>If it finds the key in the dictionary it returns the value bound to it.</p>
+<p>If it can not find the name in the dictionary it begins searching in lower dictionaries on the dictionary stack.</p>
+<p>Interestingly enough, PostScript programs start with a number of dictionaries on the stack. The most important one is the <strong>system dict</strong>. It contains all definitions of the PostScript operators!</p>
+<h2 id="literal-dictionaries"><a class="header" href="#literal-dictionaries">Literal Dictionaries</a></h2>
+<p>Creating a dictionary with the <code>dict</code> operator and pushing it on the dictionary stack with <code>begin</code> makes it the current dictionary. It will be used to bind names to values with the <code>def</code> operator.</p>
+<p>There is a literal notation for dictionaries. For example, the following snippet</p>
+<pre><code class="language-ps">3 dict begin
+    /foo 1 def
+    /bar 2 def
+    /baz 3 def
+...
+</code></pre>
+<p>is equivalent to</p>
+<pre><code class="language-ps">&lt;&lt;/foo 1 /bar 2 /baz 3&gt;&gt; begin
+...
+</code></pre>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>What values are left on the stack after the following program executes.</li>
+</ol>
+<pre><code class="language-ps">&lt;&lt;/a 1 /b 2&gt;&gt; begin
+    /a 3 def
+    a b add
+    /b exch def
+    a b
+end
+</code></pre>
+<ol start="2">
+<li>In the following snippet, what value is the name <code>a</code> bound to, according to the PostScript interpreter.</li>
+</ol>
+<pre><code class="language-ps">3 dict begin
+    /a 1 def
+    /b 2 def
+    /c &lt;&lt;/a 3 /b 4&gt;&gt; def
+    c begin
+...
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../tool/procedure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../tool/drawing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../tool/procedure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../tool/drawing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

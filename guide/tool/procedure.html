@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Procedures - PostScript; How to talk to your printer</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../title.html">PostScript</a></li><li class="chapter-item expanded affix "><a href="../expectations.html">What to expect</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../introduction/origin.html"><strong aria-hidden="true">1.</strong> Origin</a></li><li class="chapter-item expanded "><a href="../introduction/characteristics.html"><strong aria-hidden="true">2.</strong> Characteristics</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../tool/hello-world.html"><strong aria-hidden="true">3.</strong> Hello, World</a></li><li class="chapter-item expanded "><a href="../tool/stack.html"><strong aria-hidden="true">4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="../tool/stack-manipulation.html"><strong aria-hidden="true">5.</strong> Stack Manipulation</a></li><li class="chapter-item expanded "><a href="../tool/variable.html"><strong aria-hidden="true">6.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../tool/arithmetic.html"><strong aria-hidden="true">7.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="../tool/procedure.html" class="active"><strong aria-hidden="true">8.</strong> Procedures</a></li><li class="chapter-item expanded "><a href="../tool/dictionary.html"><strong aria-hidden="true">9.</strong> Dictionaries</a></li><li class="chapter-item expanded "><a href="../tool/drawing.html"><strong aria-hidden="true">10.</strong> Drawing primitives</a></li><li class="chapter-item expanded "><a href="../tool/state.html"><strong aria-hidden="true">11.</strong> Graphics State</a></li><li class="chapter-item expanded "><a href="../tool/coordinates.html"><strong aria-hidden="true">12.</strong> Coordinates</a></li><li class="chapter-item expanded "><a href="../tool/control.html"><strong aria-hidden="true">13.</strong> Control Flow</a></li><li class="chapter-item expanded affix "><li class="part-title">Projects</li><li class="chapter-item expanded "><a href="../project/grid.html"><strong aria-hidden="true">14.</strong> Grid</a></li><li class="chapter-item expanded "><a href="../project/brownian.html"><strong aria-hidden="true">15.</strong> Brownian Motion</a></li><li class="chapter-item expanded "><a href="../project/pythogorean-tree.html"><strong aria-hidden="true">16.</strong> Pythagorean Tree</a></li><li class="chapter-item expanded "><a href="../project/koch.html"><strong aria-hidden="true">17.</strong> Koch Curve</a></li><li class="chapter-item expanded "><a href="../project/hex.html"><strong aria-hidden="true">18.</strong> Hex Grid</a></li><li class="chapter-item expanded "><a href="../project/sunflower.html"><strong aria-hidden="true">19.</strong> Sun flower</a></li><li class="chapter-item expanded "><a href="../project/chaos.html"><strong aria-hidden="true">20.</strong> Chaos Game</a></li><li class="chapter-item expanded "><a href="../project/tiling.html"><strong aria-hidden="true">21.</strong> L Tiling</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendices</li><li class="chapter-item expanded "><a href="../appendix/ghostscript.html"><strong aria-hidden="true">22.</strong> Ghostscript</a></li><li class="chapter-item expanded "><a href="../appendix/manual.html"><strong aria-hidden="true">23.</strong> Reference Manual</a></li><li class="chapter-item expanded "><a href="../appendix/paper-sizes.html"><strong aria-hidden="true">24.</strong> Paper Sizes</a></li><li class="chapter-item expanded "><a href="../appendix/sizes.html"><strong aria-hidden="true">25.</strong> Points, Inches and Millimeters</a></li><li class="chapter-item expanded "><a href="../appendix/cheatsheet.html"><strong aria-hidden="true">26.</strong> Cheatsheet</a></li><li class="chapter-item expanded "><a href="../appendix/starter.html"><strong aria-hidden="true">27.</strong> Starter kit</a></li><li class="chapter-item expanded "><a href="../appendix/sources.html"><strong aria-hidden="true">28.</strong> Sources</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PostScript; How to talk to your printer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="procedures"><a class="header" href="#procedures">Procedures</a></h1>
+<p><img src="../image/generated/houses.n.png" alt="Multiple houses drawn by a procedure" /></p>
+<p>In the exercises before you found the opportunity to draw a house. An example of a house can be seen below</p>
+<p><img src="../image/generated/houses.0.png" alt="A simple house with a door" /></p>
+<p>The image that opens this chapter is based on the above house. The naive way to create the opening image is to repeat the code and change the relevant parameters.</p>
+<p>Although feasible, this is repetitive, error-prone and not much fun. We would rather create a procedure that does the work for us.</p>
+<h2 id="deferred-execution"><a class="header" href="#deferred-execution">Deferred Execution</a></h2>
+<p>There is an interesting aspect to creating a procedures in PostScript or, for that matter, any interpreted language.</p>
+<p>Take for example the <code>add</code> operator. The operator <code>add</code> takes two operands from the stack, adds them together and puts the result back onto the stack. But if we are creating a procedure, that should not happen when we are creating the procedure. It should happen when we execute the procedure. It should defer the execution until the procedure is called.</p>
+<p>To signal to the PostScript interpreter to defer the execution of operators you use the opening brace: <code>{</code>.</p>
+<p>This is akin to C-style languages, but it does play a different role here.</p>
+<p>With a little imagination one could guess that to finish defining a procedure one uses the closing brace: <code>}</code>.</p>
+<h2 id="venerable-hello-world-example"><a class="header" href="#venerable-hello-world-example">Venerable &quot;Hello, World!&quot;-example</a></h2>
+<p>Let's hark back to the PostScript variant of the &quot;Hello, World!&quot;-program. There we created a line. If we wanted to create a procedure for that we could do that in the following way.</p>
+<p>I have opened a REPL in order to better explore how PostScript handles procedures. When I go and type in the following code into the REPL</p>
+<pre><code>GS&gt;{
+    0 0 moveto
+    100 100 lineto
+}
+</code></pre>
+<p>the PostScript interpreter responds with</p>
+<pre><code>GS&lt;1&gt;
+</code></pre>
+<p>Indicating that there is something on the operand stack. Using <code>pstack</code> to show the contents of the operand stack, PostScript echos back the definition of the procedure:</p>
+<pre><code>GS&lt;1&gt;pstack
+{0 0 moveto 100 100 lineto}
+</code></pre>
+<p>With a procedure at the top of the stack, we can execute it with the <code>exec</code> operator. This is a novelty operator that we probably will use sparingly, but it gets the job done.</p>
+<pre><code>GS&lt;1&gt;exec
+</code></pre>
+<p>Remember, the only thing that will happen is that the current path is extended. Not until we stroke the path will anything become visible.</p>
+<pre><code>GS&gt;stroke
+</code></pre>
+<p>The entire transcript of the REPL run is found below.</p>
+<pre><code>GPL Ghostscript 9.50 (2019-10-15)
+Copyright (C) 2019 Artifex Software, Inc.  All rights reserved.
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
+see the file COPYING for details.
+GS&gt;{
+0 0 moveto
+100 100 lineto
+}
+GS&lt;1&gt;pstack
+{0 0 moveto 100 100 lineto}
+GS&lt;1&gt;exec
+GS&gt;stroke
+GS&gt;
+</code></pre>
+<h2 id="binding-procedures"><a class="header" href="#binding-procedures">Binding Procedures</a></h2>
+<p>Defining procedures and immediately executing them with the <code>exec</code> operator kind of defies the purpose. Instead we can bind the procedure to a name so we can reuse it later on.</p>
+<p>We can bind the above procedure to a key <code>/segment</code> with the following code.</p>
+<pre><code class="language-ps">/segment {
+    0 0 moveto
+    100 100 lineto
+} def
+</code></pre>
+<p>Later on we can call it by looking up the name:</p>
+<pre><code class="language-ps">segment
+</code></pre>
+<p>If you would execute that in a REPL, you would notice that it does not leave anything on the stack. Instead, when PostScript notices that a bound value is <em>executable</em> it goes ahead and executes it!</p>
+<h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
+<p>By now you have seen numerous usages of the stack in PostScript. With a leap of imagination you could come up with a mechanism how to pass arguments to procedures: place them on the stack. See the exercises for a suggestion how that could work.</p>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>The <code>segment</code> procedure can draw only one segment; the one from <code>0 0</code> to <code>100 100</code>. Change the definition of segment to accept arguments via the stack. The following program fragment should draw three lines</li>
+</ol>
+<pre><code class="language-ps">/segment {
+    % your definition here
+} def
+
+0 0 50 100 segment
+0 0 100 100 segment
+0 0 150 100 segment
+stroke
+</code></pre>
+<ol start="2">
+<li>In your implementation of <code>0 0 100 100 segment</code> is the line drawn from <code>0 0</code> to <code>100 100</code>, or the other way around? For a single segment it does not make a huge difference. But when we are creating longer paths it might. Write an implementation of segment that draws the line in the opposite direction.</li>
+<li>If you haven't already, try to bind the arguments for the segment procedure to names and use them.</li>
+<li>Take a look at your house and write a procedure that can reproduce the house.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../tool/arithmetic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../tool/dictionary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../tool/arithmetic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../tool/dictionary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

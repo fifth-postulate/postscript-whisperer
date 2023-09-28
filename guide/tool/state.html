@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Graphics State - PostScript; How to talk to your printer</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../title.html">PostScript</a></li><li class="chapter-item expanded affix "><a href="../expectations.html">What to expect</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../introduction/origin.html"><strong aria-hidden="true">1.</strong> Origin</a></li><li class="chapter-item expanded "><a href="../introduction/characteristics.html"><strong aria-hidden="true">2.</strong> Characteristics</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../tool/hello-world.html"><strong aria-hidden="true">3.</strong> Hello, World</a></li><li class="chapter-item expanded "><a href="../tool/stack.html"><strong aria-hidden="true">4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="../tool/stack-manipulation.html"><strong aria-hidden="true">5.</strong> Stack Manipulation</a></li><li class="chapter-item expanded "><a href="../tool/variable.html"><strong aria-hidden="true">6.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../tool/arithmetic.html"><strong aria-hidden="true">7.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="../tool/procedure.html"><strong aria-hidden="true">8.</strong> Procedures</a></li><li class="chapter-item expanded "><a href="../tool/dictionary.html"><strong aria-hidden="true">9.</strong> Dictionaries</a></li><li class="chapter-item expanded "><a href="../tool/drawing.html"><strong aria-hidden="true">10.</strong> Drawing primitives</a></li><li class="chapter-item expanded "><a href="../tool/state.html" class="active"><strong aria-hidden="true">11.</strong> Graphics State</a></li><li class="chapter-item expanded "><a href="../tool/coordinates.html"><strong aria-hidden="true">12.</strong> Coordinates</a></li><li class="chapter-item expanded "><a href="../tool/control.html"><strong aria-hidden="true">13.</strong> Control Flow</a></li><li class="chapter-item expanded affix "><li class="part-title">Projects</li><li class="chapter-item expanded "><a href="../project/grid.html"><strong aria-hidden="true">14.</strong> Grid</a></li><li class="chapter-item expanded "><a href="../project/brownian.html"><strong aria-hidden="true">15.</strong> Brownian Motion</a></li><li class="chapter-item expanded "><a href="../project/pythogorean-tree.html"><strong aria-hidden="true">16.</strong> Pythagorean Tree</a></li><li class="chapter-item expanded "><a href="../project/koch.html"><strong aria-hidden="true">17.</strong> Koch Curve</a></li><li class="chapter-item expanded "><a href="../project/hex.html"><strong aria-hidden="true">18.</strong> Hex Grid</a></li><li class="chapter-item expanded "><a href="../project/sunflower.html"><strong aria-hidden="true">19.</strong> Sun flower</a></li><li class="chapter-item expanded "><a href="../project/chaos.html"><strong aria-hidden="true">20.</strong> Chaos Game</a></li><li class="chapter-item expanded "><a href="../project/tiling.html"><strong aria-hidden="true">21.</strong> L Tiling</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendices</li><li class="chapter-item expanded "><a href="../appendix/ghostscript.html"><strong aria-hidden="true">22.</strong> Ghostscript</a></li><li class="chapter-item expanded "><a href="../appendix/manual.html"><strong aria-hidden="true">23.</strong> Reference Manual</a></li><li class="chapter-item expanded "><a href="../appendix/paper-sizes.html"><strong aria-hidden="true">24.</strong> Paper Sizes</a></li><li class="chapter-item expanded "><a href="../appendix/sizes.html"><strong aria-hidden="true">25.</strong> Points, Inches and Millimeters</a></li><li class="chapter-item expanded "><a href="../appendix/cheatsheet.html"><strong aria-hidden="true">26.</strong> Cheatsheet</a></li><li class="chapter-item expanded "><a href="../appendix/starter.html"><strong aria-hidden="true">27.</strong> Starter kit</a></li><li class="chapter-item expanded "><a href="../appendix/sources.html"><strong aria-hidden="true">28.</strong> Sources</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PostScript; How to talk to your printer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="graphics-state"><a class="header" href="#graphics-state">Graphics State</a></h1>
+<p>We have learned that PostScript differentiates between constructing a path and painting that path.</p>
+<p>In this chapter we are mentioning a few internal graphic states that PostScript keeps track of that effect the resulting marks on the paper.</p>
+<p>Almost all state variables have a pair of operators associated with them. One that set the value, the other to get the value.</p>
+<h2 id="setgray--currentgray"><a class="header" href="#setgray--currentgray">setgray / currentgray</a></h2>
+<p>To influence the <em>grayness</em> with which paths are stroked use the <code>setgray</code> operator. It takes a single operand, a value between <code>0</code> and <code>1</code>. Black corresponds to <code>0</code>, white corresponds to <code>1</code>.</p>
+<p>Below you see the same line stroked with different levels of gray.</p>
+<p><img src="../../image/generated/setgray.png" alt="Different levels of gray" /></p>
+<h2 id="setlinewidth--currentlinewidth"><a class="header" href="#setlinewidth--currentlinewidth">setlinewidth / currentlinewidth</a></h2>
+<p>To influence the <em>thickness</em> with which paths are stroked use the <code>setlinewidth</code> operator. Just like the <code>setgray</code> operator, <code>setlinewidth</code> takes a single operand, a measure how thick the stroked line should be.</p>
+<p>Below you see the same line stroked with different thickness levels.</p>
+<p><img src="../../image/generated/setlinewidth.png" alt="Different thicknesses of lines" /></p>
+<h2 id="setlinecap--currentlinecap"><a class="header" href="#setlinecap--currentlinecap">setlinecap / currentlinecap</a></h2>
+<p>To influence how the ends of lines are capped when stroked use the <code>setlinecap</code> operator. It takes a single operand. Its value determines the cap.</p>
+<div class="table-wrapper"><table><thead><tr><th>operand</th><th>cap</th></tr></thead><tbody>
+<tr><td>0</td><td>butt</td></tr>
+<tr><td>1</td><td>round</td></tr>
+<tr><td>2</td><td>square</td></tr>
+</tbody></table>
+</div>
+<p><img src="../../image/generated/setlinecap.png" alt="Different line caps" /></p>
+<h2 id="setlinejoin--currentlinejoin"><a class="header" href="#setlinejoin--currentlinejoin">setlinejoin / currentlinejoin</a></h2>
+<p>To influence how lines are joined when stroked use the <code>setlinejoin</code> operator. Just like the <code>setlinecap</code> operator, <code>setlinejoin</code> takes a single operand. Its value determines how to join lines.</p>
+<div class="table-wrapper"><table><thead><tr><th>operand</th><th>join</th></tr></thead><tbody>
+<tr><td>0</td><td>miter</td></tr>
+<tr><td>1</td><td>round</td></tr>
+<tr><td>2</td><td>bevel</td></tr>
+</tbody></table>
+</div>
+<p>The miter join has some other parameters associated with it. We will let the <a href="../appendix/manual.html">reference</a> tell you about them.</p>
+<p><img src="../../image/generated/setlinejoin.png" alt="Different line joins" /></p>
+<h2 id="gsave--grestore"><a class="header" href="#gsave--grestore">gsave / grestore</a></h2>
+<p>It will probably not surprise you that the graphics state is maintained in a stack as well, the <em>graphics stack</em>.</p>
+<p>If you want to revert to a graphics stack after you have stroked a few paths, you can use <code>gsave</code> to push onto the graphics stack, and <code>grestore</code> to return to it.</p>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>Draw your house in a different shade of gray.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../tool/drawing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../tool/coordinates.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../tool/drawing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../tool/coordinates.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

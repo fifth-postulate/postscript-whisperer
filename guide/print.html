@@ -1,0 +1,1377 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PostScript; How to talk to your printer</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title.html">PostScript</a></li><li class="chapter-item expanded affix "><a href="expectations.html">What to expect</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="introduction/origin.html"><strong aria-hidden="true">1.</strong> Origin</a></li><li class="chapter-item expanded "><a href="introduction/characteristics.html"><strong aria-hidden="true">2.</strong> Characteristics</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="tool/hello-world.html"><strong aria-hidden="true">3.</strong> Hello, World</a></li><li class="chapter-item expanded "><a href="tool/stack.html"><strong aria-hidden="true">4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="tool/stack-manipulation.html"><strong aria-hidden="true">5.</strong> Stack Manipulation</a></li><li class="chapter-item expanded "><a href="tool/variable.html"><strong aria-hidden="true">6.</strong> Variables</a></li><li class="chapter-item expanded "><a href="tool/arithmetic.html"><strong aria-hidden="true">7.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="tool/procedure.html"><strong aria-hidden="true">8.</strong> Procedures</a></li><li class="chapter-item expanded "><a href="tool/dictionary.html"><strong aria-hidden="true">9.</strong> Dictionaries</a></li><li class="chapter-item expanded "><a href="tool/drawing.html"><strong aria-hidden="true">10.</strong> Drawing primitives</a></li><li class="chapter-item expanded "><a href="tool/state.html"><strong aria-hidden="true">11.</strong> Graphics State</a></li><li class="chapter-item expanded "><a href="tool/coordinates.html"><strong aria-hidden="true">12.</strong> Coordinates</a></li><li class="chapter-item expanded "><a href="tool/control.html"><strong aria-hidden="true">13.</strong> Control Flow</a></li><li class="chapter-item expanded affix "><li class="part-title">Projects</li><li class="chapter-item expanded "><a href="project/grid.html"><strong aria-hidden="true">14.</strong> Grid</a></li><li class="chapter-item expanded "><a href="project/brownian.html"><strong aria-hidden="true">15.</strong> Brownian Motion</a></li><li class="chapter-item expanded "><a href="project/pythogorean-tree.html"><strong aria-hidden="true">16.</strong> Pythagorean Tree</a></li><li class="chapter-item expanded "><a href="project/koch.html"><strong aria-hidden="true">17.</strong> Koch Curve</a></li><li class="chapter-item expanded "><a href="project/hex.html"><strong aria-hidden="true">18.</strong> Hex Grid</a></li><li class="chapter-item expanded "><a href="project/sunflower.html"><strong aria-hidden="true">19.</strong> Sun flower</a></li><li class="chapter-item expanded "><a href="project/chaos.html"><strong aria-hidden="true">20.</strong> Chaos Game</a></li><li class="chapter-item expanded "><a href="project/tiling.html"><strong aria-hidden="true">21.</strong> L Tiling</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendices</li><li class="chapter-item expanded "><a href="appendix/ghostscript.html"><strong aria-hidden="true">22.</strong> Ghostscript</a></li><li class="chapter-item expanded "><a href="appendix/manual.html"><strong aria-hidden="true">23.</strong> Reference Manual</a></li><li class="chapter-item expanded "><a href="appendix/paper-sizes.html"><strong aria-hidden="true">24.</strong> Paper Sizes</a></li><li class="chapter-item expanded "><a href="appendix/sizes.html"><strong aria-hidden="true">25.</strong> Points, Inches and Millimeters</a></li><li class="chapter-item expanded "><a href="appendix/cheatsheet.html"><strong aria-hidden="true">26.</strong> Cheatsheet</a></li><li class="chapter-item expanded "><a href="appendix/starter.html"><strong aria-hidden="true">27.</strong> Starter kit</a></li><li class="chapter-item expanded "><a href="appendix/sources.html"><strong aria-hidden="true">28.</strong> Sources</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PostScript; How to talk to your printer</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="postscript"><a class="header" href="#postscript">PostScript</a></h1>
+<h2 id="how-to-talk-to-your-printer"><a class="header" href="#how-to-talk-to-your-printer">How to talk to your printer</a></h2>
+<p>You are looking at the guide accompanying a workshop about <a href="https://www.adobe.com/products/postscript.html"><em>PostScript</em></a>.</p>
+<p>PostScript is a <a href="https://en.wikipedia.org/wiki/Page_description_language">page description language</a>. It allows developers to describe precisely how marks should appear on a page.</p>
+<p>We believe in learning by doing, so you can expect to be asked to open your favorite editor or integrated development environment and gain first-hand practical experience with <em>PostScript</em>, by following along this guide. Exercises along the way help cement your new found knowledge making you into a PostScript whisperer.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="what-to-expect"><a class="header" href="#what-to-expect">What to expect</a></h1>
+<p>This book is divided into the following parts</p>
+<ul>
+<li>Introduction</li>
+<li>Tools</li>
+<li>Projects</li>
+<li>Appendices</li>
+</ul>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>In the introduction part we will set the scene and talk about the what PostScript is, how it evolved and how it can be used. It will provide some context which will help to make sense of some of the language design decisions.</p>
+<h2 id="tools"><a class="header" href="#tools">Tools</a></h2>
+<p>Tools are provided to have a better understanding of what makes PostScript tick.</p>
+<p>The chapters are divided along interesting features that can and are used during the projects.</p>
+<h2 id="projects"><a class="header" href="#projects">Projects</a></h2>
+<p>Projects are Bob Ross inspired expositions of the capabilities of PostScript. You should be able to dive right into a project, and have a holistic understanding of the tools. When you want to dive deeper into a certain subject, you can fall back onto the tools part. Remember, there are no mistakes, only happy accidents.</p>
+<p>The projects are by no means the final destination. They are meant as a inspiration to fuel your own explorations into PostScript. It is literally a blank canvas that invites you to express your creativity. </p>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<p>The appendices are there to provide context that are not naturally placed within the guide. They can be used as a resource for future studies and sometimes inspiration.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="origin"><a class="header" href="#origin">Origin</a></h1>
+<p>PostScript has a rich history that we delve into here for a small bit.</p>
+<p>Developed by Adobe Systems <a href="https://en.wikipedia.org/wiki/PostScript">PostScript</a> culminated in 1984 as a laser printer driver. Now almost entirely replaced with its successor <em>Portable Document Format</em> (PDF), it is a</p>
+<blockquote>
+<p>page description language in the electronic publishing and desktop publishing realm. It is a dynamically typed, concatenative programming language.</p>
+</blockquote>
+<p>PostScript allows you to accurately describe how a page should look like. It is a language that usually is generated by a program instead of written by hand. Which is a shame because it is a beautiful language full of interesting aspects.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="characteristics"><a class="header" href="#characteristics">Characteristics</a></h1>
+<p>PostScript is described as a</p>
+<blockquote>
+<p>dynamically typed, concatenative programming language</p>
+</blockquote>
+<p>What does this mean?</p>
+<h2 id="dynamically-typed"><a class="header" href="#dynamically-typed">Dynamically Typed</a></h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Type_system"><em>type</em></a> is a property associated with a certain programming constructs that can be used to determine what operations are legal.</p>
+<p>Dynamically typed means that the <em>type</em>, i.e. the property that determines legal operations, is only known at runtime.</p>
+<h2 id="concatenative"><a class="header" href="#concatenative">Concatenative</a></h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Concatenative_programming_language"><em>concatenative language</em></a> is part of programming paradigm that favors composition of functions over function application. This might be as illuminative as a broken flashlight.</p>
+<p>What is meant by that can be illustrated by a code example in a pseudo language. Function application, i.e. applying functions to their arguments, typically looks like</p>
+<pre><code>x = f(w)
+y = g(x)
+z = h(z)
+</code></pre>
+<p>Here function <code>f</code> is applied to argument <code>w</code>, that result is applied to function <code>g</code>, etc.</p>
+<p>In a concatenative language the same example would typically look like</p>
+<pre><code>w f g h
+</code></pre>
+<p>It's probably best to try your hand on an actual concatenative language to get a feel for the trade-offs between the different paradigms. Luckily PostScript provides just such a language.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello, World</a></h1>
+<p><img src="tool/../image/generated/hello-world.png" alt="&quot;Hello, World!&quot; for PostScript; a single line" /></p>
+<p>The practice of a <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">&quot;Hello, World!&quot; program</a>, i.e. a simple program to demonstrate that your tool chain works as intended, has many forms. For PostScript this would be outputting a single line. In this chapter we are going to achieve just that.</p>
+<h2 id="start-your-engines"><a class="header" href="#start-your-engines">Start your engines</a></h2>
+<p>Getting feedback is important. The sooner, the better. That is why we are going to use <a href="https://www.ghostscript.com/index.html">Ghostscript</a>.</p>
+<p>Ghostscript is</p>
+<blockquote>
+<p>an interpreter for the PostScript® language and PDF files. Ghostscript consists of a PostScript interpreter layer and a graphics library.</p>
+</blockquote>
+<p>You can find some notes about installing Ghostscript in <a href="tool/../appendix/ghostscript.html">the appendix</a>.</p>
+<p>Go ahead and start a Ghostscript session.</p>
+<blockquote>
+<p><strong>Note</strong>: Ghostscript on macOS does not have a rendered output.
+Instead of using the REPL you can write the instructions to a file and use <code>ps2pdf</code> to generate a PDF
+or use the PostScript interpreter on <strong><a href="https://postscript-render.fly.dev/">https://postscript-render.fly.dev/</a></strong> for this workshop.</p>
+</blockquote>
+<h2 id="read-eval-print-loop"><a class="header" href="#read-eval-print-loop">Read-Eval-Print-Loop</a></h2>
+<p>When you start Ghostscript the following things happen:</p>
+<ol>
+<li>A window is opened that shows a blank page. The page will show the output of the PostScript program that we enter.</li>
+<li>A Read-Eval-Print-Loop (REPL) is started. Via this REPL we can communicate with the PostScript interpreter.</li>
+</ol>
+<p>The REPL first prints a header, something akin</p>
+<pre><code>Copyright (C) 2019 Artifex Software, Inc.  All rights reserved.
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
+see the file COPYING for details.
+</code></pre>
+<p>And offers a prompt</p>
+<pre><code>GS&gt;
+</code></pre>
+<h2 id="lets-get-moving"><a class="header" href="#lets-get-moving">Let's get moving</a></h2>
+<p>We will interact with the page by executing commands in the REPL. The first command will be <code>moveto</code>.</p>
+<p>Enter the following line into the REPL.</p>
+<pre><code class="language-ps">0 0 moveto
+</code></pre>
+<p>Even when you look closely, the page will not be changed. The only thing that happened is that the <em>current path</em> is extended with a move to the origin. What this means will become clear in later chapters.</p>
+<h2 id="draw-the-line"><a class="header" href="#draw-the-line">Draw the line</a></h2>
+<p>The next step in this walkthrough is drawing the line. This can be achieved with the <code>lineto</code> command</p>
+<pre><code class="language-ps">100 100 lineto
+</code></pre>
+<p>Again, nothing seems to have changed on the page. The PostScript interpreter only extended the <em>current path</em> with a line.</p>
+<h2 id="stroke-the-current-path"><a class="header" href="#stroke-the-current-path">Stroke the current path</a></h2>
+<p>Only when we issue the <code>stroke</code> command, will the PostScript interpreter update the page.</p>
+<pre><code class="language-ps">stroke
+</code></pre>
+<h2 id="celebrate-"><a class="header" href="#celebrate-">Celebrate 🎉</a></h2>
+<p>With a line drawn on the page, you are well on your way to becoming a master of PostScript!</p>
+<h2 id="final-thoughts"><a class="header" href="#final-thoughts">Final Thoughts</a></h2>
+<h3 id="showpage"><a class="header" href="#showpage">showpage</a></h3>
+<p>If you want to experiment some more it could be nice to start with a clean slate. The <code>showpage</code> command can be used for this. When you issue it</p>
+<pre><code class="language-ps">showpage
+</code></pre>
+<p>The REPL will respond with</p>
+<pre><code>&gt;&gt;showpage, press &lt;return&gt; to continue&lt;&lt;
+</code></pre>
+<p>When you continue the page is updated and you start in a fresh state. For an actual printer, the <code>showpage</code> command would instruct the printer to print all the marks on actual paper!</p>
+<h3 id="newpath"><a class="header" href="#newpath">newpath</a></h3>
+<p>We have seen that the PostScript interpreter maintains a current path, and <code>moveto</code> and <code>lineto</code> commands modify it and <code>stroke</code> renders it on the page.</p>
+<p>If you want to make sure that you start with a clean slate you can issue the <code>newpath</code> command. This will clear the current path and allows you to start anew.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>We have created our first PostScript program by entering the following commands in the REPL.</p>
+<pre><code class="language-ps">newpath
+0 0 moveto
+100 100 lineto
+stroke
+showpage
+</code></pre>
+<p>It uses the following commands:</p>
+<ul>
+<li><code>newpath</code>: clears the current path.</li>
+<li><code>moveto</code>: extends the current path, and sets the current point.</li>
+<li><code>lineto</code>: extends the current path with a line from the current point to the point as specified by the arguments.</li>
+<li><code>stroke</code>: draws the current path.</li>
+<li><code>showpage</code>: Evicts the page and starts a new one.</li>
+</ul>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>What does the following program draw?</li>
+</ol>
+<pre><code class="language-ps">newpath
+0 100 moveto
+100 0 lineto
+0 0 moveto
+100 100 lineto
+stroke
+showpage
+</code></pre>
+<ol start="2">
+<li>With the commands you learned draw a simple house that looks like the house below
+<img src="tool/../image/generated/house.png" alt="&quot;Hello, World!&quot; for PostScript; a single line" /></li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stack"><a class="header" href="#stack">Stack</a></h1>
+<p>I would like to revisit the &quot;Hello, World!&quot;-program to highlight an important point. For completeness, here is the source of the &quot;Hello, World!&quot;-program that draws a line on the page.</p>
+<pre><code class="language-ps">0 0 moveto
+100 100 lineto
+stroke
+</code></pre>
+<p>A different program that produces the exact same output is shown next</p>
+<pre><code class="language-ps">100 100 0 0
+moveto
+lineto
+stroke
+</code></pre>
+<p>How can this be?</p>
+<h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
+<p>In the last chapter we have called <code>moveto</code> a command. The name that PostScript uses is <em>operator</em>.</p>
+<p>An operator is a functionality that PostScript provides. We have seen examples like <code>newpath</code>, <code>moveto</code>, <code>lineto</code> and <code>stroke</code>. Some operators need data to operate correctly. PostScript calls the necessary data <em>operands</em>. You can think of them as arguments to the operator.</p>
+<h2 id="operand-stack"><a class="header" href="#operand-stack">Operand Stack</a></h2>
+<p>Operands to operators are taken from the <em>operand stack</em>. A <a href="https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29">stack</a> is</p>
+<blockquote>
+<p>an abstract data type that serves as a collection of elements, with two main principal operations:</p>
+<ul>
+<li><code>Push</code>, which adds an element to the collection, and</li>
+<li><code>Pop</code>, which removes the most recently added element that was not yet removed.</li>
+</ul>
+</blockquote>
+<p>Below we can see a stack with two items, <code>100</code> and <code>90</code>.</p>
+<p><img src="tool/../image/generated/stack-02.png" alt="A stack containing 100 and 90" /></p>
+<p>The item <code>100</code> is said to be on the bottom of the stack, the item <code>90</code> is said to be on the top of the stack. When one <em>pushes</em> the item <code>10</code> on the stack, the stack grows upward.</p>
+<p><img src="tool/../image/generated/stack-03.png" alt="A stack containing 100, 90 and 10" /></p>
+<h2 id="value"><a class="header" href="#value">Value</a></h2>
+<p>When the PostScript interpreter encounters a value, like <code>100</code>, <code>90</code> or <code>10</code>, it will push it on the operand stack. So the first part of the alternative &quot;Hello, World!&quot;-program</p>
+<pre><code class="language-ps">100 100 0 0
+</code></pre>
+<p>Will push the values <code>100</code>, <code>100</code>, <code>0</code> and <code>0</code> on the operand stack. Resulting in a stack that looks like this</p>
+<p><img src="tool/../image/generated/stack-hello-04.png" alt="The stack that results in interpreting the first line of the alternative &quot;Hello, World!&quot;-program" /></p>
+<h2 id="operator"><a class="header" href="#operator">Operator</a></h2>
+<p>When the PostScript interpreter encounters an operator it will execute it. If an operator needs operands to operate, it will take does from the operand stack.</p>
+<p>For example, the <code>moveto</code> operator expects two operands. It will pop does from the operand stack.</p>
+<pre><code class="language-ps">100 100 0 0
+moveto
+</code></pre>
+<p>So the above program will result in an operand stack similar too</p>
+<p><img src="tool/../image/generated/stack-hello-02.png" alt="The stack that results in interpreting the first two lines of the alternative &quot;Hello, World!&quot;-program" /></p>
+<p>It leaves two operands for the <code>lineto</code> operator to consume.</p>
+<h2 id="stack-underflow"><a class="header" href="#stack-underflow">Stack underflow</a></h2>
+<p>When the PostScript interpreter encounters an operator, but the necessary operands aren't on the stack, a <em>stack underflow</em> error is issued.</p>
+<p>For example, when ones starts a Ghostscript session and immediately performs <code>moveto</code></p>
+<pre><code>GS&gt; moveto
+</code></pre>
+<p>one is greeted with an error:</p>
+<pre><code>Error: /stackunderflow in --moveto--
+Operand stack:
+
+Execution stack:
+   %interp_exit   .runexec2   --nostringval--   --nostringval--   --nostringval--   2   %stopped_push   --nostringval--   --nostringval--   %loop_continue   --nostringval--   --nostringval--   false   1   %stopped_push   .runexec2   --nostringval--   --nostringval--   --nostringval--   2   %stopped_push   --nostringval--
+Dictionary stack:
+   --dict:727/1123(ro)(G)--   --dict:0/20(G)--   --dict:75/200(L)--
+Current allocation mode is local
+Last OS error: Resource temporarily unavailable
+Current file position is 7
+</code></pre>
+<p>While developing PostScript programs one often encounters these kind of errors.</p>
+<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
+<p>PostScripts maintains various stacks. One of them is the <em>operand stack</em>. The operand stack is manipulated by pushing values onto them. <em>Operators</em> take values from the stack by popping <em>operands</em> from the stack. When an operator tries to pop operands from the stack which does not have enough items a <em>stack underflow</em> error occurs.</p>
+<h2 id="exercises-1"><a class="header" href="#exercises-1">Exercises</a></h2>
+<ol>
+<li>For each of the following program fragments, draw the resulting operand stack.</li>
+</ol>
+<pre><code class="language-ps">100 100
+</code></pre>
+<pre><code class="language-ps">100 100
+0 0 
+100 0
+</code></pre>
+<pre><code class="language-ps">100 100
+0 0 
+100 0
+0 100
+moveto
+</code></pre>
+<pre><code class="language-ps">100 100
+0 0 
+100 0
+0 100
+moveto
+lineto
+</code></pre>
+<pre><code class="language-ps">100 100
+0 0 
+100 0
+0 100
+moveto
+lineto
+moveto
+lineto
+</code></pre>
+<p>What does the last program look like when printed?</p>
+<ol start="2">
+<li>Write a program that results in an operand stack like this:</li>
+</ol>
+<p><img src="tool/../image/generated/stack-exercise.png" alt="The stack containing 1, 2, 3, 4" /></p>
+<ol start="3">
+<li>Is it always possible to write programs that first pushes all the operands on the stack before executing operators?</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stack-manipulation"><a class="header" href="#stack-manipulation">Stack Manipulation</a></h1>
+<p>Because the stack is so important, PostScript offers a slew of operators to manipulate the operand stack. In this chapter we are going to explore some of them.</p>
+<p>We could show a picture of the stack, but that takes up a lot of space. Instead we will rely on a representation of the operand stack that fits on a line.</p>
+<p>\[
+a_{n-1}\ a_{n-2}\ \dots\ a_{1}\ a_{0}
+\]</p>
+<p>The above line represents a stack that has \(n\) items. The bottom item is \(a_{n-1}\), the item above that one is \(a_{n-2}\), etc. The top item is \(a_{0}\).</p>
+<h2 id="operators-1"><a class="header" href="#operators-1">Operators</a></h2>
+<h3 id="push"><a class="header" href="#push">push</a></h3>
+<p>Pushes onto the operand stack are often implicit. For example, it is enough just to list the value for it to be pushed on the operand stack.</p>
+<pre><code class="language-ps">37
+</code></pre>
+<p>The program listing above will push the value <code>37</code> onto the operand stack.</p>
+<h3 id="pop"><a class="header" href="#pop">pop</a></h3>
+<p>The opposite of pushing is popping. This can be achieved by the <code>pop</code> operator. This will remove the top most item from the operand stack.</p>
+<pre><code class="language-ps">37 51 pop
+</code></pre>
+<p>This leaves the operand stack containing the value <code>37</code>.</p>
+<h3 id="dup"><a class="header" href="#dup">dup</a></h3>
+<p>To duplicate the top element on the operand stack use the <code>dup</code> operator.</p>
+<pre><code class="language-ps">37 dup
+</code></pre>
+<p>The above program will result in an operand stack containing two values: <code>37 37</code>.</p>
+<h3 id="exch"><a class="header" href="#exch">exch</a></h3>
+<p>If there are more than two items on the operand stack, <code>exch</code> allows you to exchange the top two items. If the operand stack contains <code>1 2 3</code>, the operator <code>exch</code> will exchange the <code>2</code> and the <code>3</code>, resulting in a stack containing <code>1 3 2</code>. The program below demonstrates that behavior.</p>
+<pre><code class="language-ps">1 2 3
+exch
+</code></pre>
+<h3 id="copy"><a class="header" href="#copy">copy</a></h3>
+<p>The <code>copy</code> operator is like <code>dup</code> on steroids. The <code>dup</code> operator copies the top most item on the operand stack. The <code>copy</code> operator, when provided with a number <code>n</code> to copy, copies the topmost <code>n</code> items.</p>
+<p>Look at the following program.</p>
+<pre><code class="language-ps">1 2 3 4
+3 copy
+</code></pre>
+<p>The first line pushes the values <code>1</code>, <code>2</code>, <code>3</code> and <code>4</code> on the operand stack. The next line, specifically <code>3 copy</code>, first puts <code>3</code> on the operand stack and then executes the <code>copy</code> operator. This pops the top most number from the stack, in this case that would be <code>3</code>, and copies that many elements onto the stack. This results in a operand stack</p>
+<pre><code>1 2 3 4 2 3 4
+</code></pre>
+<h3 id="roll"><a class="header" href="#roll">roll</a></h3>
+<p>Just like how <code>copy</code> is a generalization of <code>dup</code>, <code>roll</code> is a generalization of <code>exch</code>.</p>
+<p>Assume we have the following stack</p>
+<p>\[
+\ldots\ a_{n-1}\ a_{n-2}\ \ldots\ a_{0}<br />
+\]</p>
+<p>The <code>roll</code> operator allows to select the top most <code>n</code> items from the stack and &quot;roll&quot; them through <code>j</code> positions. So executing <code>n j roll</code> with the above stack results in</p>
+<p>\[
+\ldots\ a_{j-1}\ \ldots\ a_{1}\ a_{0}\ a_{n-1}\ a_{n-2}\ \ldots\ a_{j}<br />
+\]</p>
+<p>With a concrete example, the following program</p>
+<pre><code class="language-ps">1 2 3 4
+3 2 roll
+</code></pre>
+<p>results in the operand stack being</p>
+<pre><code>1 3 4 2
+</code></pre>
+<h3 id="index"><a class="header" href="#index">index</a></h3>
+<p>The <code>index</code> operator allows you to copy a single element in the operand stack to the top. With an operand stack as below</p>
+<p>\[
+\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{j}\ \ldots\ a_{0}<br />
+\]</p>
+<p>the snippet <code>j index</code> results in a stack like</p>
+<p>\[
+\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{j}\ \ldots\ a_{0}\ a_{j}
+\]</p>
+<p>Or with a concrete example</p>
+<pre><code class="language-ps">1 2 3 4
+2 index
+</code></pre>
+<p>results in the operand stack</p>
+<pre><code>1 2 3 4 2
+</code></pre>
+<h3 id="count"><a class="header" href="#count">count</a></h3>
+<p>To count the number of items on the operand stack use the <code>count</code> operator.</p>
+<h3 id="clear"><a class="header" href="#clear">clear</a></h3>
+<p>If you want to remove all the items execute the <code>clear</code> operator</p>
+<h2 id="philosophy"><a class="header" href="#philosophy">Philosophy</a></h2>
+<p>Manipulating the operand stack is an important skill to learn. So much so that idiomatic PostScript advocates to think hard about the order of arguments and exclusively use operand stack manipulations.</p>
+<p>This advice is written for application that generate PostScript in mind. When using PostScript creatively there are other mechanisms to organize your program. Ways that are geared towards readability and maintainability.</p>
+<p>That does not mean that stack manipulation isn't worthwhile. It allows great flexibility.</p>
+<h2 id="exercises-2"><a class="header" href="#exercises-2">Exercises</a></h2>
+<ol>
+<li>What happens when there is only one item on the operand stack when <code>exch</code> is executed?</li>
+<li>How can you use <code>copy</code> to simulate <code>dup</code>?</li>
+<li>How can you use <code>roll</code> to simulate <code>exch</code>?</li>
+<li>How can you use <code>index</code> to simulate <code>dup</code>?</li>
+<li>What happens when you use negative numbers as the second operand for the <code>roll</code> operator? The second operand is the one on the top on the stack when <code>roll</code> is executed.</li>
+<li>The stack contains <code>1 2 3 4</code>. Create a program to reverse the operand stack that contains four items.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
+<p>Up until now all the operands that we used are put on the stack from literal values. When we are working on larger projects that quickly becomes a hassle. In this chapter we will learn how to define variables that can be reused.</p>
+<h2 id="key"><a class="header" href="#key">Key</a></h2>
+<p>PostScript has a notion <em>key</em>. They are akin to symbols in Ruby. Keys provide a way to associate a value to a certain name.</p>
+<p>You create a key by prefix a sequence of certain characters with a slash: &quot;/&quot;. So the following code</p>
+<pre><code class="language-ps">/booster
+</code></pre>
+<p>pushes a key on the operand stack that is identified by the name <code>booster</code>.</p>
+<h2 id="definition"><a class="header" href="#definition">Definition</a></h2>
+<p>To associate a value with a key PostScript uses the <code>def</code> operator. For example the following code</p>
+<pre><code class="language-ps">/size 100 def
+</code></pre>
+<p>associates the value <code>100</code> with the key <code>/size</code>.</p>
+<h2 id="lookup"><a class="header" href="#lookup">Lookup</a></h2>
+<p>When you want to use the value that is associated with a certain key, you can look up the value by using the name of the key.</p>
+<p>For example, the result of the following code</p>
+<pre><code class="language-ps">/size 100 def
+size size
+</code></pre>
+<p>is that the value associated with the key <code>size</code> is pushed on the stack twice. In this particular case the top two items of the operand stack would be <code>100</code> and <code>100</code>.</p>
+<h2 id="benefits"><a class="header" href="#benefits">Benefits</a></h2>
+<p>The same benefits of using variables apply to PostScript programs as well as in other programming languages. Those include:</p>
+<ul>
+<li><strong>Readability</strong>: A program that uses well chosen names can help in understanding code.</li>
+<li><strong>Reuse</strong>: Instead of copying the literal value, variables allow you to reuse that value.</li>
+<li><strong>Adoptability</strong>: When a value needs to change there is a single source of truth for it. This makes it easier to experiment with different values.</li>
+<li><strong>Maintainability</strong>: Variables, when used to your benefit, serve as a form of documentation. They allow to show the intent which helps in the maintainability of code.</li>
+</ul>
+<h2 id="tip"><a class="header" href="#tip">Tip</a></h2>
+<p>An idiom that you often encounter in PostScript programs involving the <code>def</code> operand is the following</p>
+<pre><code class="language-ps">100 /size exch def
+</code></pre>
+<p>If you take a minute to think about the above code sample, you might come to the conclusion that it associates the value <code>100</code> with the key <code>/size</code>.</p>
+<p>The reasoning could go like this: The literal value <code>100</code> is pushed on the stack first, then the key <code>/size</code> is pushed on top of that. The <code>exch</code> operator changes the order of the top two items on the stack. So now, <code>/size</code> is at the bottom and <code>100</code> is on top. Just like if we would have executed the following code</p>
+<pre><code class="language-ps">/size 100
+</code></pre>
+<p>The <code>def</code> operator takes the two items on the stack and associates the key with the value. In this case <code>size</code> is associated with <code>100</code>.</p>
+<p>One place that you will use this idiom is when you have a long and involved calculation to produce a value and want repeated access to the value. Instead of first pushing a key onto the stack, performing the calculation and then making an association, effectively like this</p>
+<pre><code class="language-ps">/size
+.
+.
+.
+lines and lines of code to calculate a value
+.
+.
+.
+def
+</code></pre>
+<p>You could rearrange that into</p>
+<pre><code class="language-ps">.
+.
+.
+lines and lines of code to calculate a value
+.
+.
+.
+/size exch def
+</code></pre>
+<p>This way the key is closer to the definition, which could aid in understanding.</p>
+<h2 id="exercises-3"><a class="header" href="#exercises-3">Exercises</a></h2>
+<ol>
+<li>You made a PostScript program that draws a house in the &quot;Hello, World!&quot;-chapter. Introduce some variables into your program that allows you to manipulate the shape of the house by changing the values.</li>
+<li>The dimensions for an A4 sheet of paper are 210 millimeters by 297 millimeters. Create a program that binds variables to these numbers.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="arithmetic"><a class="header" href="#arithmetic">Arithmetic</a></h1>
+<p>We have learned how to use variables in PostScript. Sometimes we want a group of variables related to each other.</p>
+<p>For example, if you are drawing a house with a door, where the door should be directly in the center of the house. In this situation the location of the door should be calculated from the width of the house and the width of the door.</p>
+<p>That is why we are looking at arithmetic operators.</p>
+<h2 id="operators-2"><a class="header" href="#operators-2">Operators</a></h2>
+<p>Like regular operators <em>arithmetic operators</em> take arguments from the stack and places their results back on the stack.</p>
+<p>There are corresponding operators for addition, subtraction, multiplication and division. The operators usually have a shortened name</p>
+<div class="table-wrapper"><table><thead><tr><th>Operation</th><th>Operator name</th></tr></thead><tbody>
+<tr><td>addition</td><td><strong>add</strong></td></tr>
+<tr><td>subtraction</td><td><strong>sub</strong></td></tr>
+<tr><td>multiplication</td><td><strong>mul</strong></td></tr>
+<tr><td>division</td><td><strong>div</strong></td></tr>
+</tbody></table>
+</div>
+<p>It would become pretty boring to list all the known arithmetic operators. Instead I would like to point you to the <a href="tool/../appendix/manual.html">reference manual</a> for an complete overview. You can use that to lookup operators that you think would exist.</p>
+<h2 id="exercises-4"><a class="header" href="#exercises-4">Exercises</a></h2>
+<ol>
+<li>In your drawing of a house, add a centered door.</li>
+<li>Assume that there are two numbers on the stack. What does the following program calculate</li>
+</ol>
+<pre><code class="language-postscript">dup mul exch
+dup mul add
+sqrt
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="procedures"><a class="header" href="#procedures">Procedures</a></h1>
+<p><img src="tool/../image/generated/houses.n.png" alt="Multiple houses drawn by a procedure" /></p>
+<p>In the exercises before you found the opportunity to draw a house. An example of a house can be seen below</p>
+<p><img src="tool/../image/generated/houses.0.png" alt="A simple house with a door" /></p>
+<p>The image that opens this chapter is based on the above house. The naive way to create the opening image is to repeat the code and change the relevant parameters.</p>
+<p>Although feasible, this is repetitive, error-prone and not much fun. We would rather create a procedure that does the work for us.</p>
+<h2 id="deferred-execution"><a class="header" href="#deferred-execution">Deferred Execution</a></h2>
+<p>There is an interesting aspect to creating a procedures in PostScript or, for that matter, any interpreted language.</p>
+<p>Take for example the <code>add</code> operator. The operator <code>add</code> takes two operands from the stack, adds them together and puts the result back onto the stack. But if we are creating a procedure, that should not happen when we are creating the procedure. It should happen when we execute the procedure. It should defer the execution until the procedure is called.</p>
+<p>To signal to the PostScript interpreter to defer the execution of operators you use the opening brace: <code>{</code>.</p>
+<p>This is akin to C-style languages, but it does play a different role here.</p>
+<p>With a little imagination one could guess that to finish defining a procedure one uses the closing brace: <code>}</code>.</p>
+<h2 id="venerable-hello-world-example"><a class="header" href="#venerable-hello-world-example">Venerable &quot;Hello, World!&quot;-example</a></h2>
+<p>Let's hark back to the PostScript variant of the &quot;Hello, World!&quot;-program. There we created a line. If we wanted to create a procedure for that we could do that in the following way.</p>
+<p>I have opened a REPL in order to better explore how PostScript handles procedures. When I go and type in the following code into the REPL</p>
+<pre><code>GS&gt;{
+    0 0 moveto
+    100 100 lineto
+}
+</code></pre>
+<p>the PostScript interpreter responds with</p>
+<pre><code>GS&lt;1&gt;
+</code></pre>
+<p>Indicating that there is something on the operand stack. Using <code>pstack</code> to show the contents of the operand stack, PostScript echos back the definition of the procedure:</p>
+<pre><code>GS&lt;1&gt;pstack
+{0 0 moveto 100 100 lineto}
+</code></pre>
+<p>With a procedure at the top of the stack, we can execute it with the <code>exec</code> operator. This is a novelty operator that we probably will use sparingly, but it gets the job done.</p>
+<pre><code>GS&lt;1&gt;exec
+</code></pre>
+<p>Remember, the only thing that will happen is that the current path is extended. Not until we stroke the path will anything become visible.</p>
+<pre><code>GS&gt;stroke
+</code></pre>
+<p>The entire transcript of the REPL run is found below.</p>
+<pre><code>GPL Ghostscript 9.50 (2019-10-15)
+Copyright (C) 2019 Artifex Software, Inc.  All rights reserved.
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
+see the file COPYING for details.
+GS&gt;{
+0 0 moveto
+100 100 lineto
+}
+GS&lt;1&gt;pstack
+{0 0 moveto 100 100 lineto}
+GS&lt;1&gt;exec
+GS&gt;stroke
+GS&gt;
+</code></pre>
+<h2 id="binding-procedures"><a class="header" href="#binding-procedures">Binding Procedures</a></h2>
+<p>Defining procedures and immediately executing them with the <code>exec</code> operator kind of defies the purpose. Instead we can bind the procedure to a name so we can reuse it later on.</p>
+<p>We can bind the above procedure to a key <code>/segment</code> with the following code.</p>
+<pre><code class="language-ps">/segment {
+    0 0 moveto
+    100 100 lineto
+} def
+</code></pre>
+<p>Later on we can call it by looking up the name:</p>
+<pre><code class="language-ps">segment
+</code></pre>
+<p>If you would execute that in a REPL, you would notice that it does not leave anything on the stack. Instead, when PostScript notices that a bound value is <em>executable</em> it goes ahead and executes it!</p>
+<h2 id="variables-1"><a class="header" href="#variables-1">Variables</a></h2>
+<p>By now you have seen numerous usages of the stack in PostScript. With a leap of imagination you could come up with a mechanism how to pass arguments to procedures: place them on the stack. See the exercises for a suggestion how that could work.</p>
+<h2 id="exercises-5"><a class="header" href="#exercises-5">Exercises</a></h2>
+<ol>
+<li>The <code>segment</code> procedure can draw only one segment; the one from <code>0 0</code> to <code>100 100</code>. Change the definition of segment to accept arguments via the stack. The following program fragment should draw three lines</li>
+</ol>
+<pre><code class="language-ps">/segment {
+    % your definition here
+} def
+
+0 0 50 100 segment
+0 0 100 100 segment
+0 0 150 100 segment
+stroke
+</code></pre>
+<ol start="2">
+<li>In your implementation of <code>0 0 100 100 segment</code> is the line drawn from <code>0 0</code> to <code>100 100</code>, or the other way around? For a single segment it does not make a huge difference. But when we are creating longer paths it might. Write an implementation of segment that draws the line in the opposite direction.</li>
+<li>If you haven't already, try to bind the arguments for the segment procedure to names and use them.</li>
+<li>Take a look at your house and write a procedure that can reproduce the house.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dictionaries"><a class="header" href="#dictionaries">Dictionaries</a></h1>
+<p>In the previous chapter on <a href="tool/./procedure.html">procedures</a> you were asked to use variables in the exercises. If one isn't careful, one could encounter the problem of <a href="https://en.wikipedia.org/wiki/Aliasing_(computing)"><em>aliasing</em></a>.</p>
+<p>Take a careful look at the following code and try to predict what the resulting image looks like:</p>
+<pre><code class="language-ps">/height 595 def
+/width 419 def
+
+/box { % x y width height
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+} def
+
+newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+
+showpage
+</code></pre>
+<p>You will recognize a few sections in the above code</p>
+<h3 id="definitions"><a class="header" href="#definitions">Definitions</a></h3>
+<pre><code class="language-ps">/height 595 def
+/width 419 def
+</code></pre>
+<p>Here we bind the keys <code>height</code> and <code>width</code> to the values <code>595</code> and <code>419</code>.
+These are the dimension of A5 paper in <a href="tool/../appendix/sizes.html">PostScript points</a>, the default scale that is used.</p>
+<h3 id="procedures-1"><a class="header" href="#procedures-1">Procedures</a></h3>
+<pre><code class="language-ps">/box { % x y width height
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+} def
+</code></pre>
+<p>The code goes on to bind a procedure to the key <code>box</code>.</p>
+<p>The procedure uses the <a href="tool/variable.html#tip">tip</a> from the variable chapter to bind the arguments to names.</p>
+<p>Note that if we write the arguments in order</p>
+<pre><code class="language-ps">x y width height
+</code></pre>
+<p><code>height</code> ends up on top of the stack. That is why you have to bind them in the reverse order.</p>
+<p>It goes on to draw a box by moving to the lower left corner, and drawing lines to each corner in a counter-clockwise fashion.</p>
+<pre><code class="language-ps">    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+</code></pre>
+<h3 id="drawing"><a class="header" href="#drawing">Drawing</a></h3>
+<p>The next section of code uses the defined <code>box</code> procedure to draw, and stroke, three boxes.</p>
+<pre><code class="language-ps">newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+</code></pre>
+<p>The same arguments are passed each time. So one would expect to see only one box.</p>
+<p><img src="tool/../../image/generated/aliasing.png" alt="Three boxes where one would expect only one" /></p>
+<h2 id="aliasing"><a class="header" href="#aliasing">Aliasing</a></h2>
+<p>As hinted in the opening paragraph the unexpected boxes originate from aliasing. If you look carefully you will notice that the &quot;global&quot; <code>width</code> and <code>height</code> variables are reassigned each time the <code>box</code> procedure is called.</p>
+<p>One could solve the problem if one could scope the variables to the procedure only. This is where dictionaries come in.</p>
+<h2 id="use-of-dictionary"><a class="header" href="#use-of-dictionary">Use of dictionary</a></h2>
+<p><img src="tool/../../image/generated/no-aliasing.png" alt="A single box, drawn three times" /></p>
+<p>The above image is the one we expected. It is drawn by the following program.</p>
+<pre><code class="language-ps">/height 595 def
+/width 419 def
+
+/box { % x y width height
+    4 dict begin
+    /height exch def
+    /width exch def
+    /y exch def
+    /x exch def
+    x y moveto
+    x width add y lineto
+    x width add y height add lineto
+    x y height add lineto
+    x y lineto
+    end
+} def
+
+newpath
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+0 height 2 div 72 height 3 div box
+stroke
+
+showpage
+</code></pre>
+<p>The only difference with the program mentioned in the beginning of this chapter is the pair</p>
+<pre><code class="language-ps">    4 dict begin
+</code></pre>
+<p>and</p>
+<pre><code class="language-ps">    end
+</code></pre>
+<p><code>4 dict</code> creates a dictionary that can contain 4 items and puts it on the operand stack, <code>begin</code> takes the dictionary from the stack and makes it the current dictionary, so that it will be used to bind variables in and look up names from.</p>
+<p><code>end</code> restores the previous dictionary as the current dictionary.</p>
+<h2 id="dictionary-stack"><a class="header" href="#dictionary-stack">Dictionary Stack</a></h2>
+<p>The operand stack is of central importance in any PostScript program. But it is not the only stack that PostScript knows about.</p>
+<p>There is also a dictionary stack. Just like the operand stack the dictionary stack is a stack. We saw that you can use <code>begin</code> and <code>end</code> to push dictionaries onto and pop them from the stack.</p>
+<p>The dictionary stack plays an integral role in PostScript programs. Specifically how it looks up values bound to names. When the PostScript interpreter encounters a name like <code>bergen</code> it will search for a binding in the current, or top-most, dictionary.</p>
+<p>If it finds the key in the dictionary it returns the value bound to it.</p>
+<p>If it can not find the name in the dictionary it begins searching in lower dictionaries on the dictionary stack.</p>
+<p>Interestingly enough, PostScript programs start with a number of dictionaries on the stack. The most important one is the <strong>system dict</strong>. It contains all definitions of the PostScript operators!</p>
+<h2 id="literal-dictionaries"><a class="header" href="#literal-dictionaries">Literal Dictionaries</a></h2>
+<p>Creating a dictionary with the <code>dict</code> operator and pushing it on the dictionary stack with <code>begin</code> makes it the current dictionary. It will be used to bind names to values with the <code>def</code> operator.</p>
+<p>There is a literal notation for dictionaries. For example, the following snippet</p>
+<pre><code class="language-ps">3 dict begin
+    /foo 1 def
+    /bar 2 def
+    /baz 3 def
+...
+</code></pre>
+<p>is equivalent to</p>
+<pre><code class="language-ps">&lt;&lt;/foo 1 /bar 2 /baz 3&gt;&gt; begin
+...
+</code></pre>
+<h2 id="exercises-6"><a class="header" href="#exercises-6">Exercises</a></h2>
+<ol>
+<li>What values are left on the stack after the following program executes.</li>
+</ol>
+<pre><code class="language-ps">&lt;&lt;/a 1 /b 2&gt;&gt; begin
+    /a 3 def
+    a b add
+    /b exch def
+    a b
+end
+</code></pre>
+<ol start="2">
+<li>In the following snippet, what value is the name <code>a</code> bound to, according to the PostScript interpreter.</li>
+</ol>
+<pre><code class="language-ps">3 dict begin
+    /a 1 def
+    /b 2 def
+    /c &lt;&lt;/a 3 /b 4&gt;&gt; def
+    c begin
+...
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="drawing-primitives"><a class="header" href="#drawing-primitives">Drawing primitives</a></h1>
+<p><img src="tool/../../image/generated/drawing.png" alt="A doodle made possible by the drawing primitives of PostScript" /></p>
+<p>It is about time we talk about drawing with PostScript!</p>
+<p>The above doodle is created with some of the drawing primitives that PostScript provides. To wet our appetite we will list the entire program below</p>
+<pre><code class="language-ps">newpath
+
+0 0 moveto
+100 100 lineto
+100 150 50 -90 180 arc 
+50 50 0 100 0 0 curveto
+closepath
+stroke
+
+showpage
+</code></pre>
+<h2 id="current-path"><a class="header" href="#current-path">Current Path</a></h2>
+<p>The central concept in PostScript programs is the path. The drawing primitives construct paths. You might remember from the &quot;Hello, World!&quot;-program that your first construct a path and then stroke it. Later we will learn that paths can also be filled.</p>
+<p>The path that is being constructed is called the <em>current path</em>. The drawing operators change the current path in certain ways.</p>
+<h2 id="newpath-1"><a class="header" href="#newpath-1">newpath</a></h2>
+<p>The <code>newpath</code> operator clears the current path and starts an empty path, ready to be altered to your hearts content.</p>
+<h2 id="moveto"><a class="header" href="#moveto">moveto</a></h2>
+<p>The <code>moveto</code> operator changes the <em>current point</em>. The current point is an important building block for drawing primitives. Usually drawing primitives change the current point to be the current point to the last control point.</p>
+<p>The <code>moveto</code> operator requires two operands to be present on the stack. Those are the <code>x</code>-coordinate and the <code>y</code>-coordinate of the current point to be.</p>
+<p>No marks will be left on the paper with a <code>moveto</code> operator.</p>
+<h2 id="lineto"><a class="header" href="#lineto">lineto</a></h2>
+<p>If you do want to leave a straight line segment as a mark on the paper, use the <code>lineto</code> operator.</p>
+<p>The <code>lineto</code> operator requires four operands. The <code>x</code>- and <code>y</code>-coordinates of the start point and the <code>x</code>- and <code>y</code>-coordinates of the end point. The current point will be set to the end point.</p>
+<h2 id="arc"><a class="header" href="#arc">arc</a></h2>
+<p>The <code>arc</code> operator and variants create a circular arc. It needs 5 operands. The <code>x</code>- and <code>y</code>-coordinate of the center of the arc, the radius of the arc and the two angles in degrees.</p>
+<p><code>arc</code> creates a counter-clockwise arc from the first angle to the second angle. The <code>arcn</code> variant produces a clockwise arc from the first angle to the second angle.</p>
+<p>Furthermore, a line segment is added from the current point to the first point, the point at the first angle, of the circular arc.</p>
+<p>The following snippets show the various options</p>
+<pre><code class="language-ps">0 0 moveto
+100 100 50 0 270 arc
+</code></pre>
+<pre><code class="language-ps">0 0 moveto
+100 100 50 270 0 arc
+</code></pre>
+<pre><code class="language-ps">0 0 moveto
+100 100 50 0 270 arcn
+</code></pre>
+<pre><code class="language-ps">0 0 moveto
+100 100 50 270 0 arcn
+</code></pre>
+<p>Their result collated in a single image:</p>
+<p><img src="tool/../../image/generated/arc.png" alt="Some of the variants of arc" /></p>
+<h2 id="curveto"><a class="header" href="#curveto">curveto</a></h2>
+<p>The curveto operator extends the current path with <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">a cubic bezier curve</a>.</p>
+<p>Bezier curves are fascinating and well-behaved drawing tool. We will not say a lot about it now, but feel free to pick the brain of the workshop leaders.</p>
+<h2 id="closepath"><a class="header" href="#closepath">closepath</a></h2>
+<p>The close path operator will draw a line segment from the current point to the point designated by the last moveto operator.</p>
+<p>There is a subtle difference, that will be noticeable under close scrutiny, between drawing the segment yourself and using closepath.</p>
+<p><img src="tool/../../image/generated/closepath.png" alt="The difference between &quot;closing&quot; a path by hand and using closepath" /></p>
+<h2 id="relative-drawing-primitive"><a class="header" href="#relative-drawing-primitive">Relative drawing primitive</a></h2>
+<p>The above drawing primitives all accept operands. When the operands are coordinates they are global. For example if you want to draw a square with the lower left corner at 10 10 and with side length of 30 one could use the following program</p>
+<pre><code class="language-ps">10 10 moveto
+40 10 lineto
+40 40 lineto
+10 40 lineto
+closepath
+</code></pre>
+<p>The problem is that we need to calculate the endpoints. We can let PostScript do the heavy lifting, but there is an alternative. Take a look at the following snippet</p>
+<pre><code class="language-ps">10 10 moveto
+30 0 rlineto
+0 30 rlineto
+30 neg 0 rlineto
+closepath
+</code></pre>
+<p>The big difference is the use of <code>rlineto</code>. This will draw a line segment with a relative to the <em>current point</em>.</p>
+<p>Almost all the mentioned drawing primitives have such a relative cousin.</p>
+<h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
+<p>There are more drawing operators, all with a specific need. Listing them all isn't very exciting. Instead I will point you to the <a href="tool/../appendix/manual.html">reference</a>.</p>
+<h2 id="exercises-7"><a class="header" href="#exercises-7">Exercises</a></h2>
+<ol>
+<li>Match the <code>arc</code> snippets to the drawing.</li>
+<li>There is no relative <code>arc</code> operator. Provide one yourself. Hint: take a look at the <code>currentpoint</code> operator.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="graphics-state"><a class="header" href="#graphics-state">Graphics State</a></h1>
+<p>We have learned that PostScript differentiates between constructing a path and painting that path.</p>
+<p>In this chapter we are mentioning a few internal graphic states that PostScript keeps track of that effect the resulting marks on the paper.</p>
+<p>Almost all state variables have a pair of operators associated with them. One that set the value, the other to get the value.</p>
+<h2 id="setgray--currentgray"><a class="header" href="#setgray--currentgray">setgray / currentgray</a></h2>
+<p>To influence the <em>grayness</em> with which paths are stroked use the <code>setgray</code> operator. It takes a single operand, a value between <code>0</code> and <code>1</code>. Black corresponds to <code>0</code>, white corresponds to <code>1</code>.</p>
+<p>Below you see the same line stroked with different levels of gray.</p>
+<p><img src="tool/../../image/generated/setgray.png" alt="Different levels of gray" /></p>
+<h2 id="setlinewidth--currentlinewidth"><a class="header" href="#setlinewidth--currentlinewidth">setlinewidth / currentlinewidth</a></h2>
+<p>To influence the <em>thickness</em> with which paths are stroked use the <code>setlinewidth</code> operator. Just like the <code>setgray</code> operator, <code>setlinewidth</code> takes a single operand, a measure how thick the stroked line should be.</p>
+<p>Below you see the same line stroked with different thickness levels.</p>
+<p><img src="tool/../../image/generated/setlinewidth.png" alt="Different thicknesses of lines" /></p>
+<h2 id="setlinecap--currentlinecap"><a class="header" href="#setlinecap--currentlinecap">setlinecap / currentlinecap</a></h2>
+<p>To influence how the ends of lines are capped when stroked use the <code>setlinecap</code> operator. It takes a single operand. Its value determines the cap.</p>
+<div class="table-wrapper"><table><thead><tr><th>operand</th><th>cap</th></tr></thead><tbody>
+<tr><td>0</td><td>butt</td></tr>
+<tr><td>1</td><td>round</td></tr>
+<tr><td>2</td><td>square</td></tr>
+</tbody></table>
+</div>
+<p><img src="tool/../../image/generated/setlinecap.png" alt="Different line caps" /></p>
+<h2 id="setlinejoin--currentlinejoin"><a class="header" href="#setlinejoin--currentlinejoin">setlinejoin / currentlinejoin</a></h2>
+<p>To influence how lines are joined when stroked use the <code>setlinejoin</code> operator. Just like the <code>setlinecap</code> operator, <code>setlinejoin</code> takes a single operand. Its value determines how to join lines.</p>
+<div class="table-wrapper"><table><thead><tr><th>operand</th><th>join</th></tr></thead><tbody>
+<tr><td>0</td><td>miter</td></tr>
+<tr><td>1</td><td>round</td></tr>
+<tr><td>2</td><td>bevel</td></tr>
+</tbody></table>
+</div>
+<p>The miter join has some other parameters associated with it. We will let the <a href="tool/../appendix/manual.html">reference</a> tell you about them.</p>
+<p><img src="tool/../../image/generated/setlinejoin.png" alt="Different line joins" /></p>
+<h2 id="gsave--grestore"><a class="header" href="#gsave--grestore">gsave / grestore</a></h2>
+<p>It will probably not surprise you that the graphics state is maintained in a stack as well, the <em>graphics stack</em>.</p>
+<p>If you want to revert to a graphics stack after you have stroked a few paths, you can use <code>gsave</code> to push onto the graphics stack, and <code>grestore</code> to return to it.</p>
+<h2 id="exercises-8"><a class="header" href="#exercises-8">Exercises</a></h2>
+<ol>
+<li>Draw your house in a different shade of gray.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="coordinates"><a class="header" href="#coordinates">Coordinates</a></h1>
+<p>The painting primitives accept operands that describe where marks should be made. These descriptions are relative to a <em>coordinate system</em>.</p>
+<p>This coordinate system starts out with the center in the lower left corner of the page. With its x-axis horizontal pointing to the right and its y-axis vertical pointing up. Its units are expressed in the arcane <a href="tool/../appendix/sizes.html"><em>PostScript points</em></a>.</p>
+<p>The coordinate system can be modified to suit your needs. This chapter describes a few possibilities. We will be using the asymmetric letter P to visualize the transformations.</p>
+<p><img src="tool/../../image/generated/coordinates-00.png" alt="The asymmetric letter P" /></p>
+<h2 id="translate"><a class="header" href="#translate">translate</a></h2>
+<p><img src="tool/../../image/generated/coordinates-01.png" alt="The asymmetric letter P, translated" /></p>
+<p>The <code>translate</code> operator translates the coordinate system. It accepts two operands, that determine the amount to translate the origin in both the x-axis and y-axis.</p>
+<h2 id="rotate"><a class="header" href="#rotate">rotate</a></h2>
+<p><img src="tool/../../image/generated/coordinates-02.png" alt="The asymmetric letter P, rotated" /></p>
+<p>The <code>rotate</code> operator rotates the coordinate system. It accepts a single operand, an angle in degrees, that determines the amount to rotate the coordinate system.</p>
+<p>Positive angles rotate counter clockwise.</p>
+<h2 id="scale"><a class="header" href="#scale">scale</a></h2>
+<p><img src="tool/../../image/generated/coordinates-03.png" alt="The asymmetric letter P, scaled" /></p>
+<p>The <code>scale</code> operator scales the coordinate system. It accepts two operands, that determine the factor to scale the x-axis and y-axis.</p>
+<p>Non-uniform scaling, i.e. scaling with different factors for the x-axis and y-axis, produce a line width that depends on the direction of the line.</p>
+<h2 id="combination"><a class="header" href="#combination">Combination</a></h2>
+<p>By combining <code>translate</code>, <code>rotate</code> and <code>scale</code> in various ways, one can achieve all transformations that are allowed and possible by PostScript.</p>
+<p>PostScript allows for direct manipulation of the current coordinate system. If you want to know more about that see the <a href="tool/../appendix/manual.html">reference</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control Flow</a></h1>
+<p>PostScript is an interpreted language. It reads operators from a program and executes them. Some of these operators allow the developer to control the flow of execution.</p>
+<p>All <em>control flow</em> operators have a similar structure. They take as operands one or more procedures and a description when to execute it.</p>
+<p>We will go through a few control flow operators, but don't hesitate to look for more in the <a href="tool/../appendix/manual.html">reference</a>.</p>
+<h2 id="if"><a class="header" href="#if">if</a></h2>
+<p>The <code>if</code> operator takes as its two operands a boolean, which can be obtained with various operands like <code>eq</code>, <code>and</code>, <code>not</code> etc, and a procedure.</p>
+<p>It will execute the procedure only if the boolean is <code>true</code>.</p>
+<h2 id="ifelse"><a class="header" href="#ifelse">ifelse</a></h2>
+<p>With a little imagination one could guess what the <code>ifelse</code> operator does. It accepts three operands, a boolean and two procedures. Depending on the truth value of the boolean, either the first procedure is executed or else the second procedure is executed.</p>
+<h2 id="repeat"><a class="header" href="#repeat">repeat</a></h2>
+<p>If you want to repeat a procedure a number of times, <code>repeat</code> is the operator you are looking for. Its operands, a number and a procedure, control the execution.</p>
+<p>The number determines how many times the procedure is executed.</p>
+<h2 id="for"><a class="header" href="#for">for</a></h2>
+<p>This is your standard for loop. It accepts a whooping four operands. E.g.:</p>
+<pre><code class="language-ps">0 1 10 { pop } for
+</code></pre>
+<p>The first three operands are numbers: <em>initial</em>, <em>increment</em> and <em>limit</em>. The fourth operand is the procedure to execute.</p>
+<p>The procedure runs with values from <em>initial</em> by steps of <em>increment</em> to <em>limit</em>, inclusive. Each time around the loop, the index is pushed onto the stack for the procedure to consume.</p>
+<h2 id="exercises-9"><a class="header" href="#exercises-9">Exercises</a></h2>
+<ol>
+<li>Imagine that the language designers forgot to provided <code>ifelse</code>, but they provided <code>if</code>. Implement <code>ifelse</code> in terms of <code>if</code> and the boolean operators.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="grid"><a class="header" href="#grid">Grid</a></h1>
+<p><img src="project/../image/generated/grid.png" alt="A grid visualizing the current coordinate system" /></p>
+<p>The first project we are going to work on is a utility that allows us to visualize the current coordinate system.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="brownian-motion"><a class="header" href="#brownian-motion">Brownian Motion</a></h1>
+<p><img src="project/../image/generated/brownian-motion.png" alt="A random word with 6 principal directions" /></p>
+<p><a href="https://en.wikipedia.org/wiki/Brownian_motion"><em>Brownian motion</em></a> is</p>
+<blockquote>
+<p>the random motion of particles suspended in a medium.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pythagorean-tree"><a class="header" href="#pythagorean-tree">Pythagorean Tree</a></h1>
+<p><img src="project/../image/generated/pythagorean-tree.png" alt="A Pythagorean Tree with an angle of 44 " /></p>
+<p><a href="https://en.wikipedia.org/wiki/Pythagoras">Pythagoras</a> is attributed to a theorem that relates the area of the squares erected on the sides of a right-angled triangle.</p>
+<p>\[
+a^{2} + b^{2} = c^2
+\]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="koch-curve"><a class="header" href="#koch-curve">Koch Curve</a></h1>
+<p><img src="project/../image/generated/koch.png" alt="An approximation of the Koch Curve" /></p>
+<p>The <a href="https://en.wikipedia.org/wiki/Koch_snowflake">Koch curve</a> is a famous fractal.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hex-grid"><a class="header" href="#hex-grid">Hex Grid</a></h1>
+<p><img src="project/../image/generated/hex.png" alt="Hex paper as used with GURPS, a role-playing system" /></p>
+<p>Hex grids are sometimes used for role-playing purposes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sun-flower"><a class="header" href="#sun-flower">Sun flower</a></h1>
+<p><img src="project/../image/generated/sunflower.png" alt="A sunflower, chosing a most irrational angle successive seeds" /></p>
+<p>The florets of the sunflower naturally arrange themselves along spirals.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chaos-game"><a class="header" href="#chaos-game">Chaos Game</a></h1>
+<p><img src="project/../image/generated/sierprinski.png" alt="The Sierprinksi gasket as rendered with the Chaos game" /></p>
+<p><a href="https://en.wikipedia.org/wiki/Chaos_game">The chaos game</a> is a way to render certain fractals, like the Sierprinski gasket above.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="l-tiling"><a class="header" href="#l-tiling">L Tiling</a></h1>
+<p><img src="project/../image/generated/tiling.png" alt="fifth stage of the L-tiling, based on the self-similar subdivision of the L tetromino" /></p>
+<p>You can tile the plane with L-tetrominoes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ghostscript"><a class="header" href="#ghostscript">Ghostscript</a></h1>
+<p>In order to save trees, we are not going to send our experimentations to an actual printer. Instead we are going to use a PostScript interpreter.</p>
+<p>Specifically, we are going to use <a href="https://www.ghostscript.com/index.html"><em>Ghostscript</em></a>.</p>
+<p><img src="appendix/../image/ghostscript-plus-text.png" alt="The Ghostscript Logo" /></p>
+<p>Ghostscript is a</p>
+<blockquote>
+<p>an interpreter for the PostScript®  language and PDF files. Ghostscript consists of a PostScript interpreter layer and a graphics library.</p>
+</blockquote>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p><a href="https://www.ghostscript.com/releases/gsdnld.html">Obtaining Ghostscript</a> depends on your platform.</p>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p>The installation page has binaries for <a href="https://www.ghostscript.com/releases/gsdnld.html">Windows</a>.</p>
+<h3 id="mac"><a class="header" href="#mac">Mac</a></h3>
+<p>There is a <a href="https://formulae.brew.sh/formula/ghostscript">homebrew recipe</a> that can be used to install Ghostscript.</p>
+<pre><code>homebrew install ghostscript
+</code></pre>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<p>It is likely that Ghostscript is already installed, or that you can install it via a package manager. Otherwise the installation page has binaries for <a href="https://www.ghostscript.com/releases/gsdnld.html">Linux</a> as well.</p>
+<h2 id="verification"><a class="header" href="#verification">Verification</a></h2>
+<p>Once installed you can verify that Ghostscript works as intended by starting the program. There are various aliases notably <code>ghostscript</code> or the shorter <code>gs</code> should open a blank window and show the following prompt in the terminal</p>
+<pre><code>GPL Ghostscript 9.50 (2019-10-15)
+Copyright (C) 2019 Artifex Software, Inc.  All rights reserved.
+This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
+see the file COPYING for details.
+GS&gt;
+</code></pre>
+<p>This can be used as a Read-Eval-Print-Loop (REPL). See the <a href="appendix/../tool/hello-world">Hello, World</a> on how to use that.</p>
+<h2 id="alternative"><a class="header" href="#alternative">Alternative</a></h2>
+<p>Ghostscript is a low-level tool that allows you to inspect PostScript programs and how they are interpreted. But often you will want to open a high level viewer.</p>
+<p>Again, installing a PostScript viewer is platform dependent. Below we will provide some suggestions per platform</p>
+<h3 id="windows-1"><a class="header" href="#windows-1">Windows</a></h3>
+<p><a href="https://psviewer.org/"><em>psviewer</em></a> seems a capable PostScript viewer on Windows</p>
+<h3 id="mac-1"><a class="header" href="#mac-1">Mac</a></h3>
+<p>The default <code>Preview.app</code> has the capability to show PostScript files</p>
+<h3 id="linux-1"><a class="header" href="#linux-1">Linux</a></h3>
+<p>The utility <code>gv</code>, which stands for <em>ghostview</em> and can be installed via a package manager, is a clunky, but good viewer. It has the option to watch the file you are developing for changes and update the display when changes occur.</p>
+<h2 id="in-case-of-emergency"><a class="header" href="#in-case-of-emergency">In case of emergency</a></h2>
+<p>If all the above fails, we have created a utility that will render your PostScript on the web:</p>
+<p><a href="https://postscript-render.fly.dev">https://postscript-render.fly.dev</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual"><a class="header" href="#reference-manual">Reference Manual</a></h1>
+<p>This workshop is an introduction to the PostScript language. Although it tries to provide a thorough exposition of PostScript, the image model and its operators, it was never intended to be complete.</p>
+<p>When you find the guide lacking the <em>PostScript Language Reference</em> is the definitive source for all things PostScript. We provided a PDF version of the reference with the material. You can find it in the file <code>PLRM.pdf</code> or online:</p>
+<p><a href="https://tmp.fnordig.de/booster2022/PLRM.pdf">https://tmp.fnordig.de/booster2022/PLRM.pdf</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="paper-sizes"><a class="header" href="#paper-sizes">Paper Sizes</a></h1>
+<p>There are various <a href="https://en.wikipedia.org/wiki/Paper_size">standards</a> that specify paper sizes. A popular one is the <em>A-series</em>, which we will explore in some detail in this chapter.</p>
+<h2 id="a-series"><a class="header" href="#a-series">A-series</a></h2>
+<p>The A-series of paper sizes, that range from A0 to A10, has interesting properties that allow one to deduce a lot about the actual dimensions of each type.</p>
+<p>The first property is that A0, the largest in the series, has an area of exactly 1 square meter. Each next type in the series is half as big in area as its predecessor.</p>
+<p>The second property is that each type has a similar shape. This means that if one could shrink or grow a certain type with an appropriate amount, you would be able to produce all the other types.</p>
+<p><img src="appendix/../image/generated/A-series.stacked.png" alt="Stacked paper-types from the A-series of paper sizes" /></p>
+<h2 id="dimensions"><a class="header" href="#dimensions">Dimensions</a></h2>
+<p>If you are into those things, you can put pen to paper and figure out the exact dimensions for each type of paper in the A-series. We do just that below the summary of the results.</p>
+<p>The next table summarizes the calculations below and lists width and height in millimeters for the types in of paper in the A-series when in portrait mode.</p>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Width (mm)</th><th>Height (mm)</th></tr></thead><tbody>
+<tr><td>A0</td><td>841</td><td>1189</td></tr>
+<tr><td>A1</td><td>594'</td><td>841</td></tr>
+<tr><td>A2</td><td>420</td><td>594'</td></tr>
+<tr><td>A3</td><td>297</td><td>420</td></tr>
+<tr><td>A4</td><td>210</td><td>297</td></tr>
+<tr><td>A5</td><td>148'</td><td>210</td></tr>
+<tr><td>A6</td><td>105</td><td>148'</td></tr>
+<tr><td>A7</td><td>74</td><td>105</td></tr>
+<tr><td>A8</td><td>52'</td><td>74</td></tr>
+<tr><td>A9</td><td>37</td><td>52'</td></tr>
+<tr><td>A10</td><td>26</td><td>37</td></tr>
+</tbody></table>
+</div>
+<p>The numbers with an accent are taken from the standard and deviate from the calculated value due to different rounding scheme.</p>
+<h2 id="calculation"><a class="header" href="#calculation">Calculation</a></h2>
+<p><img src="appendix/../image/generated/A-series.calculation.png" alt="Diagram to aid in the calculation of paper sizes in the A-series" /></p>
+<p>Take a look at the above diagram. We will use it to figure out the dimensions of the various types of paper in the A-series.</p>
+<p>We know that all the papers have similar size. So to get started we are going to figure out how much longer the long side is compared to the short side.</p>
+<h3 id="scaling-factor"><a class="header" href="#scaling-factor">Scaling Factor</a></h3>
+<p>We set the width to 1 unit and for our convience the height to \(2x\) units. Since the two sheets of paper one type down make up one of the starting type, and since the shapes are similar, meaning they have the same ratio we find out that</p>
+<p>\[
+\frac{2x}{1} = \frac{1}{x}
+\]</p>
+<p>By multiplying with \(x\) on both sides we find that</p>
+<p>\[
+2x^{2} = 1
+\]</p>
+<p>Or</p>
+<p>\[
+x^{2} = \frac{1}{2}<br />
+\]</p>
+<p>This equation has two solutions, one negative and one positive. Since we are looking for a length, only the positive one makes sense.</p>
+<p>\[
+x = \sqrt{\frac{1}{2}} = \frac{\sqrt{1}}{\sqrt{2}} = \frac{1}{\sqrt{2}}\cdot 1 = \frac{1}{\sqrt{2}}\frac{\sqrt{2}}{\sqrt{2}} = \frac{1}{\sqrt{2}\cdot\sqrt{2}}\frac{\sqrt{2}}{1} = \frac{1}{2}\sqrt{2}
+\]</p>
+<p>With the scaling factor being twice \(x\) the scaling factor becomes \(\sqrt{2}\).</p>
+<h3 id="dimension-of-a0"><a class="header" href="#dimension-of-a0">Dimension of A0</a></h3>
+<p>We now know the scaling factor. The next step is finding out the dimension of a sheet of A0 paper. The defining property, besides the ratio between the sides, is that A0 has an area of 1 square meter. Let's figure out the dimensions from that.</p>
+<p>Let \(s\) be the short side of an A0 sheet of paper. The long side would then be \(s\sqrt{2}\). Its area becomes</p>
+<p>\[
+s^{2}\cdot\sqrt{2} = 1<br />
+\]</p>
+<p>or</p>
+<p>\[
+s^{2} = \frac{1}{\sqrt{2}}
+\]</p>
+<p>We are still looking for a size, again we are interested in the positive solution of this equation.</p>
+<p>\[
+s = \frac{1}{\sqrt[4]{2}} \approx 0.8408964152537145430311254762332148950400342623567845108132260859\ldots
+\]</p>
+<p>The dimensions of the A0 sheet of paper then becomes in millimeters 841 by 1189.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="points-inches-and-millimeters"><a class="header" href="#points-inches-and-millimeters">Points, Inches and Millimeters</a></h1>
+<p>For historic reasons the default unit of length is the <em>PostScript point</em>, or points for short.</p>
+<p>There are 72 points in an inch. There are also 25.4 millimeters in an inch.</p>
+<p>So if you want your default measurement to be in millimeters you can use a scaling factor of \(\frac{72}{25.4}\).</p>
+<p>Or in PostScript code:</p>
+<pre><code class="language-ps">72 25.4 div
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cheatsheet"><a class="header" href="#cheatsheet">Cheatsheet</a></h1>
+<p>A short overview of common operators and constructs, useful for examples &amp; projects in this guide.
+See the <a href="appendix/manual.html">Reference Manual</a> for the full list.</p>
+<h2 id="stack-manipulation-operators"><a class="header" href="#stack-manipulation-operators">Stack Manipulation Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$any$$</td><td><code>1</code></td><td>$$any\ 1$$</td><td>Push element <code>1</code> onto the stack, value can be any literal or name</td></tr>
+<tr><td>$$any$$</td><td><code>pop</code></td><td>$$-$$</td><td>Discard top element</td></tr>
+<tr><td>$$a_{1}\ a_{2}$$</td><td><code>exch</code></td><td>$$a_{2}\ a_{1}$$</td><td>Exchange top two elements</td></tr>
+<tr><td>$$a_{1}\ a_{2}$$</td><td><code>dup</code></td><td>$$a_{2}\ a_{1}$$</td><td>Duplicate top element</td></tr>
+<tr><td>$$a_{1}\ \dots\ a_{n}\ n$$</td><td><code>copy</code></td><td>$$a_{1}\ \dots\ a_{n}\ a_{1}\ \dots\ a_{n}\ $$</td><td>Duplicate top \( n \) elements</td></tr>
+<tr><td>$$a_{n}\ \dots\ a_{0}\ n$$</td><td><code>index</code></td><td>$$a_{n}\ \dots\ a_{0}\ a_{n}$$</td><td>Duplicate arbitrary element</td></tr>
+<tr><td>$$a_{n-1}\ \dots\ a_{0}\ n\ j$$</td><td><code>roll</code></td><td>$$a_{(j-1)\ mod\ n}\ \dots\ a_{0}\ a_{n-1}\ \dots a_{j\ mod\ n}$$</td><td>Roll \( n \) elements up \( j \) times</td></tr>
+<tr><td>$$a_{n}\ \dots\ a_{0}$$</td><td><code>clear</code></td><td>$$-$$</td><td>Discard all elements</td></tr>
+<tr><td>$$a_{n}\ \dots\ a_{0}$$</td><td><code>count</code></td><td>$$a_{n}\ \dots\ a_{0}\ n$$</td><td>Count elements on stack</td></tr>
+</tbody></table>
+</div>
+<h2 id="arithmetic-and-math-operators"><a class="header" href="#arithmetic-and-math-operators">Arithmetic and Math Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>add</code></td><td>$$sum$$</td><td>\( n_{1} + n_{2} \)</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>sub</code></td><td>$$diff$$</td><td>\( n_{1} - n_{2} \)</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>mul</code></td><td>$$product$$</td><td>\( n_{1} \times n_{2} \)</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>div</code></td><td>$$quotient$$</td><td>\( n_{1} \div n_{2} \)</td></tr>
+<tr><td>$$n$$</td><td><code>neg</code></td><td>$$-n$$</td><td>Negative of \( n \)</td></tr>
+<tr><td>$$n$$</td><td><code>sqrt</code></td><td>$$\sqrt{n}$$</td><td>Square root of \( n \)</td></tr>
+<tr><td>$$a$$</td><td><code>cos</code></td><td>$$\cos{a}$$</td><td>Cosine of \( a \) degrees</td></tr>
+<tr><td>$$a$$</td><td><code>sin</code></td><td>$$\sin{a}$$</td><td>Sine of \( a \) degrees</td></tr>
+<tr><td>$$-$$</td><td><code>rand</code></td><td>$$n$$</td><td>Pseudo-random integer</td></tr>
+</tbody></table>
+</div>
+<h2 id="array-operators"><a class="header" href="#array-operators">Array Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$-$$</td><td><code>[</code></td><td>$$mark$$</td><td>Start array construction</td></tr>
+<tr><td>$$mark\ obj_{0}\ \dots\ obj_{n-1}$$</td><td><code>]</code></td><td>$$array$$</td><td>End array construction</td></tr>
+<tr><td>$$array$$</td><td><code>length</code></td><td>$$int$$</td><td>Number of elements in \( array \)</td></tr>
+<tr><td>$$array\ proc$$</td><td><code>forall</code></td><td>$$-$$</td><td>Execute \( proc \) for each element of \( array \)</td></tr>
+</tbody></table>
+</div>
+<h2 id="dictionary-operators"><a class="header" href="#dictionary-operators">Dictionary Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$n$$</td><td><code>dict</code></td><td>$$dict$$</td><td>Create dictionary with capacity \( n \)</td></tr>
+<tr><td>$$-$$</td><td><code>&lt;&lt;</code></td><td>$$mark$$</td><td>Start dictionary construction</td></tr>
+<tr><td>$$mark\ key_{1}\ value_{1}\ \dots\ key_{n}\ value_{n}$$</td><td><code>&gt;&gt;</code></td><td>$$dict$$</td><td>End dictionary construction</td></tr>
+<tr><td>$$dict$$</td><td><code>length</code></td><td>$$int$$</td><td>Number of entries in \( dict \)</td></tr>
+<tr><td>$$dict$$</td><td><code>begin</code></td><td>$$-$$</td><td>Push \( dict \) on dictionary stack</td></tr>
+<tr><td>$$-$$</td><td><code>end</code></td><td>$$-$$</td><td>Pop current dictionary off dictionary stack</td></tr>
+<tr><td>$$/key\ value$$</td><td><code>def</code></td><td>$$-$$</td><td>Associate \( key \) with \( value \) in current dictionary</td></tr>
+</tbody></table>
+</div>
+<h2 id="relational-and-boolean-operators"><a class="header" href="#relational-and-boolean-operators">Relational and Boolean Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>eq</code></td><td>$$bool$$</td><td>Test equal</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>ne</code></td><td>$$bool$$</td><td>Test not equal</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>ge</code></td><td>$$bool$$</td><td>Test greater than or equal</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>gt</code></td><td>$$bool$$</td><td>Test greater than</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>le</code></td><td>$$bool$$</td><td>Test less than or equal</td></tr>
+<tr><td>$$n_{1}\ n_{2}$$</td><td><code>gt</code></td><td>$$bool$$</td><td>Test less than</td></tr>
+<tr><td>$$-$$</td><td><code>true</code></td><td>$$\text{true}$$</td><td>Literal value \( \text{true} \)</td></tr>
+<tr><td>$$-$$</td><td><code>false</code></td><td>$$\text{false}$$</td><td>Literal value \( \text{false} \)</td></tr>
+</tbody></table>
+</div>
+<h2 id="control-operators"><a class="header" href="#control-operators">Control Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$any$$</td><td><code>exec</code></td><td>$$-$$</td><td>Execute arbitrary object</td></tr>
+<tr><td>$$bool\ proc$$</td><td>$$if$$</td><td>$$-$$</td><td>Execute \( proc \) if \( bool \) is true</td></tr>
+<tr><td>$$bool\ proc_{1}\ proc_{2}$$</td><td>$$ifelse$$</td><td>$$-$$</td><td>Execute \( proc_{1} \) if \( bool \) is true, \( proc_{2} \) if false</td></tr>
+<tr><td>$$init\ inc\ limit\ proc$$</td><td>$$for$$</td><td>$$-$$</td><td>Execute \( proc \) with values from \( init \) by steps of \( inc \) to \( limit \)</td></tr>
+<tr><td>$$n\ proc$$</td><td>$$repeat$$</td><td>$$-$$</td><td>Execute \( proc \) \( n \) times</td></tr>
+<tr><td>$$proc$$</td><td>$$loop$$</td><td>$$-$$</td><td>Execute \( proc \) an indefinite number of times</td></tr>
+<tr><td>$$-$$</td><td>$$exit$$</td><td>$$-$$</td><td>Exit innermost active loop</td></tr>
+</tbody></table>
+</div>
+<h2 id="graphics-state-operators"><a class="header" href="#graphics-state-operators">Graphics State Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$-$$</td><td><code>gsave</code></td><td>$$-$$</td><td>Push graphics state</td></tr>
+<tr><td>$$-$$</td><td><code>grestore</code></td><td>$$-$$</td><td>Pop graphics state</td></tr>
+<tr><td>$$num$$</td><td><code>setlinewidth</code></td><td>$$-$$</td><td>Set line width</td></tr>
+<tr><td>$$-$$</td><td><code>currentlinewidth</code></td><td>$$int$$</td><td>Current line width</td></tr>
+<tr><td>$$int$$</td><td><code>setlinecap</code></td><td>$$-$$</td><td>Set shape of line ends for stroke (<code>0 = butt</code>, <code>1 = round</code>, <code>2 = square</code>)</td></tr>
+<tr><td>$$-$$</td><td><code>currentlinecap</code></td><td>$$int$$</td><td>Current line cap</td></tr>
+<tr><td>$$int$$</td><td>setlinejoin</td><td>$$-$$</td><td>Set shape of corners for stroke (0 = miter, 1 = round, 2 = bevel)</td></tr>
+<tr><td>$$-$$</td><td><code>currentlinejoin</code></td><td>$$int$$</td><td>Current line join</td></tr>
+<tr><td>$$num$$</td><td><code>setgray</code></td><td>$$-$$</td><td>Set color to specified gray value (0 = black, 1 = white)</td></tr>
+</tbody></table>
+</div>
+<h2 id="coordinate-system-and-matrix-operators"><a class="header" href="#coordinate-system-and-matrix-operators">Coordinate System and Matrix Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$t_{x}\ t_{y}$$</td><td><code>translate</code></td><td>$$-$$</td><td>Translate user space by \( (t_{x}, t_{y}) \)</td></tr>
+<tr><td>$$s_{x}\ s_{y}$$</td><td><code>scale</code></td><td>$$-$$</td><td>Translate user space by \( (s_{x}, s_{y}) \)</td></tr>
+<tr><td>$$a$$</td><td><code>rotate</code></td><td>$$-$$</td><td>Rotate user space by \( a \) degrees</td></tr>
+</tbody></table>
+</div>
+<h2 id="path-construction-operators"><a class="header" href="#path-construction-operators">Path Construction Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$-$$</td><td><code>newpath</code></td><td>$$-$$</td><td>Initialize current path to be empty</td></tr>
+<tr><td>$$-$$</td><td><code>currentpoint</code></td><td>$$x y$$</td><td>Return current point coordinates</td></tr>
+<tr><td>$$x\ y$$</td><td><code>moveto</code></td><td>$$-$$</td><td>Set current point to \( (x, y) \)</td></tr>
+<tr><td>$$dx\ dy$$</td><td><code>rmoveto</code></td><td>$$-$$</td><td>Perform relative <code>moveto</code></td></tr>
+<tr><td>$$x\ y$$</td><td><code>lineto</code></td><td>$$-$$</td><td>Append straight line to \( (x, y) \)</td></tr>
+<tr><td>$$dx\ dy$$</td><td><code>rmoveto</code></td><td>$$-$$</td><td>Perform relative <code>lineto</code></td></tr>
+<tr><td>$$x\ y\ r\ a_{1}\ a_{2}$$</td><td><code>arc</code></td><td>$$-$$</td><td>Append counterclockwise arc, with \( (x, y) \) as the center for a radius of \( r \) from angle \( a_{1} \) to angle \( a_{2} \)</td></tr>
+<tr><td>$$x\ y\ r\ a_{1}\ a_{2}$$</td><td><code>arcn</code></td><td>$$-$$</td><td>Append clockwise arc</td></tr>
+<tr><td>$$x_{1}\ y_{1}\ x_{2}\ y_{2}\ x_{3}\ y_{3}$$</td><td><code>curveto</code></td><td>$$-$$</td><td>Append Bézier cubic section</td></tr>
+<tr><td>$$-$$</td><td><code>closepath</code></td><td>$$-$$</td><td>Connect subpath back to its starting point</td></tr>
+</tbody></table>
+</div>
+<h2 id="painting-operators"><a class="header" href="#painting-operators">Painting Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$-$$</td><td><code>erasepage</code></td><td>$$-$$</td><td>Paint current page white</td></tr>
+<tr><td>$$-$$</td><td><code>stroke</code></td><td>$$-$$</td><td>Draw line along current path</td></tr>
+<tr><td>$$-$$</td><td><code>fill</code></td><td>$$-$$</td><td>Fill current path with current color</td></tr>
+</tbody></table>
+</div>
+<h2 id="utility-operators"><a class="header" href="#utility-operators">Utility Operators</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Stack before</th><th>Operator</th><th>Stack after</th><th>Description</th></tr></thead><tbody>
+<tr><td>$$any_{1}\ \dots\ any_{n}$$</td><td><code>stack</code></td><td>$$any_{1}\ \dots\ any_{n}$$</td><td>Print stack nondestructively</td></tr>
+<tr><td>$$-$$</td><td><code>showpage</code></td><td>$$-$$</td><td>Transmit and reset current page</td></tr>
+</tbody></table>
+</div>
+<h2 id="common-constructs"><a class="header" href="#common-constructs">Common constructs</a></h2>
+<h3 id="comment"><a class="header" href="#comment">Comment</a></h3>
+<pre><code class="language-ps">% Everything here is now a comment
+</code></pre>
+<h3 id="default-a5-paper-size"><a class="header" href="#default-a5-paper-size">Default A5 paper size</a></h3>
+<p>See also: <a href="appendix/paper-sizes.html">Paper Sizes</a>.</p>
+<pre><code class="language-ps">/pagewidth 148 def
+/pageheight 210 def
+</code></pre>
+<h3 id="scale-the-coordinate-system-to-millimeters"><a class="header" href="#scale-the-coordinate-system-to-millimeters">Scale the coordinate system to millimeters</a></h3>
+<p>See also: <a href="appendix/sizes.html">Points, Inches and Millimeters</a>.</p>
+<pre><code class="language-ps">72 25.4 div dup scale
+</code></pre>
+<h3 id="center-the-coordination-system-on-the-page"><a class="header" href="#center-the-coordination-system-on-the-page">Center the coordination system on the page</a></h3>
+<pre><code class="language-ps">pagewidth 2 div pageheight 2 div translate
+</code></pre>
+<h3 id="dictionary-literals"><a class="header" href="#dictionary-literals">Dictionary literals</a></h3>
+<p>Creates a dictionary of key-value pairs from the given list, puts the dictionary on the dictionary stack,
+and later pops it off the stack again.</p>
+<pre><code class="language-ps">&lt;&lt;/foo 1 /bar 2 /baz 3&gt;&gt; begin
+    ...
+end
+</code></pre>
+<h3 id="defining-a-procedure"><a class="header" href="#defining-a-procedure">Defining a procedure</a></h3>
+<p>Creates a new procedure named <code>proc</code>:</p>
+<pre><code class="language-ps">/proc {
+    ...
+} def
+</code></pre>
+<h3 id="giving-names-to-procedure-operands"><a class="header" href="#giving-names-to-procedure-operands">Giving names to procedure operands</a></h3>
+<p>Creates a new procedure named <code>proc</code>, which expects 3 operands on the stack: <code>x y z</code>.</p>
+<pre><code class="language-ps">/proc { % x y z
+    [/x /y /z] dup length dict begin { exch def } forall
+        ...
+    end
+} def
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="starter-kit"><a class="header" href="#starter-kit">Starter kit</a></h1>
+<p>If you want to try your hand on an interesting problem, without writing your own project, then this starter kit is for you.</p>
+<pre><code class="language-ps">% Relative arc
+%
+% Draws an arc where the center is relative to the current point. Other arguments are like the arc operand.
+% arguments
+% dx: the amount to shift the center of the arc from the current point in the x-direction
+% dy: similar to dx, but shift in the y-direction
+% r: radius of the arc
+% a: start angle
+% b: end angle
+% see the arc operator for more information.
+/rarc { % dx dy r a b 
+    [/b /a /r /dy /dx] dup length dict begin { exch def } forall
+        currentpoint % x y 
+        dy           % x y dy
+        add          % x (y+dy)
+        exch         % (y+dy) x
+        dx add exch  % (x+dx) (y+dy)
+        r a b        % (x+dx) (y+dy) r a b
+        arc
+    end
+} def
+
+% scale to coordinate system to use millimeters
+72 25.4 div dup scale
+
+% The dimensions of A5 paper
+/page-width 148 def
+/page-height 210 def
+
+% translate the coordinate system to the center of the page
+page-width 2 div page-height 2 div translate
+
+
+newpath
+
+% Create a procedure to automate the following code
+% Think about what arguments the procudure should accept
+% and how they relate to the resulting spiral
+0 0 moveto
+0 0 10 180 0 rarc
+20 neg 0 20 0 180 rarc
+30 0 30 180 0 rarc
+40 neg 0 40 0 180 rarc
+
+stroke
+
+showpage
+</code></pre>
+<p>Create the above file and view it with a PostScript viewer. There is a spiral drawn.</p>
+<p>Unfortunatly the spiral is fixed. The exercise is to create a procudure that draws spirals with these and other characteristics.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sources"><a class="header" href="#sources">Sources</a></h1>
+<p>The sources for this guide, its examples and references can be found at <a href="https://github.com/fifth-postulate/postscript-whisperer">the project repository</a>.</p>
+<p>It also holds <a href="https://github.com/fifth-postulate/postscript-whisperer/releases">a downloadable release</a>; a package of all aforementioned items. </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

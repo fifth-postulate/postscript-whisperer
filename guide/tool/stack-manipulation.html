@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Stack Manipulation - PostScript; How to talk to your printer</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../title.html">PostScript</a></li><li class="chapter-item expanded affix "><a href="../expectations.html">What to expect</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../introduction/origin.html"><strong aria-hidden="true">1.</strong> Origin</a></li><li class="chapter-item expanded "><a href="../introduction/characteristics.html"><strong aria-hidden="true">2.</strong> Characteristics</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../tool/hello-world.html"><strong aria-hidden="true">3.</strong> Hello, World</a></li><li class="chapter-item expanded "><a href="../tool/stack.html"><strong aria-hidden="true">4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="../tool/stack-manipulation.html" class="active"><strong aria-hidden="true">5.</strong> Stack Manipulation</a></li><li class="chapter-item expanded "><a href="../tool/variable.html"><strong aria-hidden="true">6.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../tool/arithmetic.html"><strong aria-hidden="true">7.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="../tool/procedure.html"><strong aria-hidden="true">8.</strong> Procedures</a></li><li class="chapter-item expanded "><a href="../tool/dictionary.html"><strong aria-hidden="true">9.</strong> Dictionaries</a></li><li class="chapter-item expanded "><a href="../tool/drawing.html"><strong aria-hidden="true">10.</strong> Drawing primitives</a></li><li class="chapter-item expanded "><a href="../tool/state.html"><strong aria-hidden="true">11.</strong> Graphics State</a></li><li class="chapter-item expanded "><a href="../tool/coordinates.html"><strong aria-hidden="true">12.</strong> Coordinates</a></li><li class="chapter-item expanded "><a href="../tool/control.html"><strong aria-hidden="true">13.</strong> Control Flow</a></li><li class="chapter-item expanded affix "><li class="part-title">Projects</li><li class="chapter-item expanded "><a href="../project/grid.html"><strong aria-hidden="true">14.</strong> Grid</a></li><li class="chapter-item expanded "><a href="../project/brownian.html"><strong aria-hidden="true">15.</strong> Brownian Motion</a></li><li class="chapter-item expanded "><a href="../project/pythogorean-tree.html"><strong aria-hidden="true">16.</strong> Pythagorean Tree</a></li><li class="chapter-item expanded "><a href="../project/koch.html"><strong aria-hidden="true">17.</strong> Koch Curve</a></li><li class="chapter-item expanded "><a href="../project/hex.html"><strong aria-hidden="true">18.</strong> Hex Grid</a></li><li class="chapter-item expanded "><a href="../project/sunflower.html"><strong aria-hidden="true">19.</strong> Sun flower</a></li><li class="chapter-item expanded "><a href="../project/chaos.html"><strong aria-hidden="true">20.</strong> Chaos Game</a></li><li class="chapter-item expanded "><a href="../project/tiling.html"><strong aria-hidden="true">21.</strong> L Tiling</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendices</li><li class="chapter-item expanded "><a href="../appendix/ghostscript.html"><strong aria-hidden="true">22.</strong> Ghostscript</a></li><li class="chapter-item expanded "><a href="../appendix/manual.html"><strong aria-hidden="true">23.</strong> Reference Manual</a></li><li class="chapter-item expanded "><a href="../appendix/paper-sizes.html"><strong aria-hidden="true">24.</strong> Paper Sizes</a></li><li class="chapter-item expanded "><a href="../appendix/sizes.html"><strong aria-hidden="true">25.</strong> Points, Inches and Millimeters</a></li><li class="chapter-item expanded "><a href="../appendix/cheatsheet.html"><strong aria-hidden="true">26.</strong> Cheatsheet</a></li><li class="chapter-item expanded "><a href="../appendix/starter.html"><strong aria-hidden="true">27.</strong> Starter kit</a></li><li class="chapter-item expanded "><a href="../appendix/sources.html"><strong aria-hidden="true">28.</strong> Sources</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PostScript; How to talk to your printer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="stack-manipulation"><a class="header" href="#stack-manipulation">Stack Manipulation</a></h1>
+<p>Because the stack is so important, PostScript offers a slew of operators to manipulate the operand stack. In this chapter we are going to explore some of them.</p>
+<p>We could show a picture of the stack, but that takes up a lot of space. Instead we will rely on a representation of the operand stack that fits on a line.</p>
+<p>\[
+a_{n-1}\ a_{n-2}\ \dots\ a_{1}\ a_{0}
+\]</p>
+<p>The above line represents a stack that has \(n\) items. The bottom item is \(a_{n-1}\), the item above that one is \(a_{n-2}\), etc. The top item is \(a_{0}\).</p>
+<h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
+<h3 id="push"><a class="header" href="#push">push</a></h3>
+<p>Pushes onto the operand stack are often implicit. For example, it is enough just to list the value for it to be pushed on the operand stack.</p>
+<pre><code class="language-ps">37
+</code></pre>
+<p>The program listing above will push the value <code>37</code> onto the operand stack.</p>
+<h3 id="pop"><a class="header" href="#pop">pop</a></h3>
+<p>The opposite of pushing is popping. This can be achieved by the <code>pop</code> operator. This will remove the top most item from the operand stack.</p>
+<pre><code class="language-ps">37 51 pop
+</code></pre>
+<p>This leaves the operand stack containing the value <code>37</code>.</p>
+<h3 id="dup"><a class="header" href="#dup">dup</a></h3>
+<p>To duplicate the top element on the operand stack use the <code>dup</code> operator.</p>
+<pre><code class="language-ps">37 dup
+</code></pre>
+<p>The above program will result in an operand stack containing two values: <code>37 37</code>.</p>
+<h3 id="exch"><a class="header" href="#exch">exch</a></h3>
+<p>If there are more than two items on the operand stack, <code>exch</code> allows you to exchange the top two items. If the operand stack contains <code>1 2 3</code>, the operator <code>exch</code> will exchange the <code>2</code> and the <code>3</code>, resulting in a stack containing <code>1 3 2</code>. The program below demonstrates that behavior.</p>
+<pre><code class="language-ps">1 2 3
+exch
+</code></pre>
+<h3 id="copy"><a class="header" href="#copy">copy</a></h3>
+<p>The <code>copy</code> operator is like <code>dup</code> on steroids. The <code>dup</code> operator copies the top most item on the operand stack. The <code>copy</code> operator, when provided with a number <code>n</code> to copy, copies the topmost <code>n</code> items.</p>
+<p>Look at the following program.</p>
+<pre><code class="language-ps">1 2 3 4
+3 copy
+</code></pre>
+<p>The first line pushes the values <code>1</code>, <code>2</code>, <code>3</code> and <code>4</code> on the operand stack. The next line, specifically <code>3 copy</code>, first puts <code>3</code> on the operand stack and then executes the <code>copy</code> operator. This pops the top most number from the stack, in this case that would be <code>3</code>, and copies that many elements onto the stack. This results in a operand stack</p>
+<pre><code>1 2 3 4 2 3 4
+</code></pre>
+<h3 id="roll"><a class="header" href="#roll">roll</a></h3>
+<p>Just like how <code>copy</code> is a generalization of <code>dup</code>, <code>roll</code> is a generalization of <code>exch</code>.</p>
+<p>Assume we have the following stack</p>
+<p>\[
+\ldots\ a_{n-1}\ a_{n-2}\ \ldots\ a_{0}<br />
+\]</p>
+<p>The <code>roll</code> operator allows to select the top most <code>n</code> items from the stack and &quot;roll&quot; them through <code>j</code> positions. So executing <code>n j roll</code> with the above stack results in</p>
+<p>\[
+\ldots\ a_{j-1}\ \ldots\ a_{1}\ a_{0}\ a_{n-1}\ a_{n-2}\ \ldots\ a_{j}<br />
+\]</p>
+<p>With a concrete example, the following program</p>
+<pre><code class="language-ps">1 2 3 4
+3 2 roll
+</code></pre>
+<p>results in the operand stack being</p>
+<pre><code>1 3 4 2
+</code></pre>
+<h3 id="index"><a class="header" href="#index">index</a></h3>
+<p>The <code>index</code> operator allows you to copy a single element in the operand stack to the top. With an operand stack as below</p>
+<p>\[
+\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{j}\ \ldots\ a_{0}<br />
+\]</p>
+<p>the snippet <code>j index</code> results in a stack like</p>
+<p>\[
+\ldots\ a_{n}\ a_{n-1}\ \ldots\ a_{j}\ \ldots\ a_{0}\ a_{j}
+\]</p>
+<p>Or with a concrete example</p>
+<pre><code class="language-ps">1 2 3 4
+2 index
+</code></pre>
+<p>results in the operand stack</p>
+<pre><code>1 2 3 4 2
+</code></pre>
+<h3 id="count"><a class="header" href="#count">count</a></h3>
+<p>To count the number of items on the operand stack use the <code>count</code> operator.</p>
+<h3 id="clear"><a class="header" href="#clear">clear</a></h3>
+<p>If you want to remove all the items execute the <code>clear</code> operator</p>
+<h2 id="philosophy"><a class="header" href="#philosophy">Philosophy</a></h2>
+<p>Manipulating the operand stack is an important skill to learn. So much so that idiomatic PostScript advocates to think hard about the order of arguments and exclusively use operand stack manipulations.</p>
+<p>This advice is written for application that generate PostScript in mind. When using PostScript creatively there are other mechanisms to organize your program. Ways that are geared towards readability and maintainability.</p>
+<p>That does not mean that stack manipulation isn't worthwhile. It allows great flexibility.</p>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>What happens when there is only one item on the operand stack when <code>exch</code> is executed?</li>
+<li>How can you use <code>copy</code> to simulate <code>dup</code>?</li>
+<li>How can you use <code>roll</code> to simulate <code>exch</code>?</li>
+<li>How can you use <code>index</code> to simulate <code>dup</code>?</li>
+<li>What happens when you use negative numbers as the second operand for the <code>roll</code> operator? The second operand is the one on the top on the stack when <code>roll</code> is executed.</li>
+<li>The stack contains <code>1 2 3 4</code>. Create a program to reverse the operand stack that contains four items.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../tool/stack.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../tool/variable.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../tool/stack.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../tool/variable.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
